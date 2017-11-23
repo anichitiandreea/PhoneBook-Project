@@ -1,12 +1,12 @@
-#include "object.h"
-#include "Admin.h"
-#include "Password.h"
+#include "../Headers/Object.h"
+#include "../Headers/Admin.h"
+#include "../Headers/Password.h"
 #include <conio.h>
 #include <iostream>
 #include <fstream>
 #include <cstring>
-#include "Person.h"
-#include "Console.h"
+#include "../Headers/Person.h"
+#include "../Headers/Console.h"
 
 using namespace std;
 
@@ -148,6 +148,7 @@ void Adminmenu::AddButton()
         system("cls");
         char id[10];
         Persoana pers;
+        int ok=0;
         Console::gotoxy(10,10);
         cout<<"Enter the id of the person you want to search for: ";
         cin>>id;
@@ -163,8 +164,25 @@ void Adminmenu::AddButton()
                     cout<<pers.name.Get()<<'\n';
                     Console::gotoxy(36,16);
                     cout<<pers.email.Get()<<'\n';
+                    ok=1;
                 }
-        exit(0);
+        if(ok==0)
+        {
+            Console::gotoxy(30,13);
+            cout<<"Person not found";
+            Console::gotoxy(25,14);
+            cout<<"Do you want to return to Admin menu? (y/n)";
+            char c;
+            cin>>c;
+            if(c=='y' || c=='Y')
+            {
+                system("cls");
+                Adminmenu *admin = new Adminmenu();
+                admin->PrintItems();
+            }
+            else
+                exit(0);
+        }
         break;
     }
     case 4:
@@ -172,8 +190,9 @@ void Adminmenu::AddButton()
         system("cls");
         Persoana pers;
         char number[20];
+        int ok=0;
         Console::gotoxy(10,10);
-        cout<<"Enter the name of the person you want to search for: ";
+        cout<<"Enter the number of the person you want to search for: ";
         cin>>number;
         while(file>>pers)
             if(strstr(pers.number.Get(),number)>0)
@@ -187,8 +206,25 @@ void Adminmenu::AddButton()
                     cout<<pers.name.Get()<<'\n';
                     Console::gotoxy(36,16);
                     cout<<pers.email.Get()<<'\n';
+                    ok=1;
                 }
-        exit(0);
+        if(ok==0)
+        {
+            Console::gotoxy(30,13);
+            cout<<"Person not found";
+            Console::gotoxy(25,14);
+            cout<<"Do you want to return to Admin menu? (y/n)";
+            char c;
+            cin>>c;
+            if(c=='y' || c=='Y')
+            {
+                system("cls");
+                Adminmenu *admin = new Adminmenu();
+                admin->PrintItems();
+            }
+            else
+                exit(0);
+        }
         break;
     }
     case 5:
@@ -196,6 +232,7 @@ void Adminmenu::AddButton()
         system("cls");
         Persoana pers;
         char name[100];
+        int ok=0;
         Console::gotoxy(10,10);
         cout<<"Enter the name of the person you want to search for: ";
             cin.get(name,100);
@@ -211,32 +248,66 @@ void Adminmenu::AddButton()
                     cout<<pers.name.Get()<<'\n';
                     Console::gotoxy(36,16);
                     cout<<pers.email.Get()<<'\n';
+                    ok=1;
                 }
-        exit(0);
+       if(ok==0)
+        {
+            Console::gotoxy(30,13);
+            cout<<"Person not found";
+            Console::gotoxy(25,14);
+            cout<<"Do you want to return to Admin menu? (y/n)";
+            char c;
+            cin>>c;
+            if(c=='y' || c=='Y')
+            {
+                system("cls");
+                Adminmenu *admin = new Adminmenu();
+                admin->PrintItems();
+            }
+            else
+                exit(0);
+        }
         break;
     }
     case 6:
     {
         system("cls");
         Persoana pers;
-        char email[100];
+        string email;
+        int ok=0;
         Console::gotoxy(10,10);
         cout<<"Enter the email of the person you want to search for: ";
-        cin.getline(email,100);
-        while(file>>pers)
-            if(strstr(pers.email.Get(),email)>0)
-                if(strlen(email)==strlen(pers.email.Get()))
-                    {
-                        Console::gotoxy(36,13);
-                        cout<<pers.id.Get()<<'\n';
-                        Console::gotoxy(36,14);
-                        cout<<pers.number.Get()<<'\n';
-                        Console::gotoxy(36,15);
-                        cout<<pers.name.Get()<<'\n';
-                        Console::gotoxy(36,16);
-                        cout<<pers.email.Get()<<'\n';
-                    }
-        exit(0);
+        getline(cin, email);
+        while(file >> pers)
+            if((pers.email.Get()).find(email) != std::string::npos)
+                {
+                    Console::gotoxy(36,13);
+                    cout<<pers.id.Get()<<'\n';
+                    Console::gotoxy(36,14);
+                    cout<<pers.number.Get()<<'\n';
+                    Console::gotoxy(36,15);
+                    cout<<pers.name.Get()<<'\n';
+                    Console::gotoxy(36,16);
+                    cout<<pers.email.Get()<<'\n';
+                    ok=1;
+                }
+        if(ok==0)
+        {
+            Console::gotoxy(30,13);
+            cout<<"Person not found";
+            Console::gotoxy(25,14);
+            cout<<"Do you want to return to Admin menu? (y/n)";
+            char c;
+            cin>>c;
+            if(c=='y' || c=='Y')
+            {
+                system("cls");
+                Adminmenu *admin = new Adminmenu();
+                admin->PrintItems();
+            }
+            else
+                exit(0);
+        }
         break;
     }
     case 7:

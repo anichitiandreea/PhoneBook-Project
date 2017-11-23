@@ -5,7 +5,7 @@
 
 class ILevel
 {
-    public:
+public:
     virtual void PrintItems()                 = 0;
     virtual void RemoveItem()                 = 0;
     virtual void AddItem(const  std::string&) = 0;
