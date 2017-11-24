@@ -9,6 +9,5 @@ int main()
 {
 	ILevel *level = new Level();
 	level->PrintItems();
-	cout<<"salut";
 	return 0;
 }
