@@ -11,8 +11,7 @@ using namespace std;
 Username::Username()
 {
     username=new char[100];
-    Console::gotoxy(33,10);
-    cout<<"Enter the user: ";
+    Console::PrintCenter("Enter the user: " ,10);
 }
 void Username::EnterUser()
 {

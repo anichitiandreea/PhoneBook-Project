@@ -20,11 +20,17 @@ void Persoana::AddPersoana()
 {
     file.open("database.txt", ios_base::app | ios::in | ios::out);
     Console::gotoxy(37,10);
-    cout<<"Enter the person's id: "; id.AddId();
+    string tempid;
+    cout<<"Enter the person's id: "; getline(cin, tempid);
+    id.Set(tempid);
     Console::gotoxy(37,11);
-    cout<<"Enter the telephone number: "; number.AddNumber();
+    string tempnumber;
+    cout<<"Enter the telephone number: "; getline(cin,tempnumber);
+    number.Set(tempnumber);
     Console::gotoxy(37,12);
-    cout<<"Enter the full name: "; name.AddName();
+    string tempname;
+    cout<<"Enter the full name: "; getline(cin,tempname);
+    name.Set(tempname);
     Console::gotoxy(37,13);
     string tempEmail;
     cout<<"Enter the email: "; cin >> tempEmail;
@@ -33,13 +39,11 @@ void Persoana::AddPersoana()
     {
         file<<this->id<<'\n'<<this->number<<'\n'<<this->name<<'\n'<<this->email<<'\n';
         file<<'\n';
-        Console::gotoxy(37,15);
-        cout<<"Person added succesfully.";
+        Console::PrintCenter("Person added succesfully.",15);
     }
     else
     {
-        Console::gotoxy(37,15);
-        cout<<"Person can't be added.";
+        Console::PrintCenter("Person can't be added." ,15);
     }
 }
 
@@ -48,13 +52,12 @@ void Persoana::Remove()
     file.open("database.txt", ios_base::app | ios::in | ios::out);
     ifile.open("ifile.txt", ios_base::app | ios::in | ios::out);
     Persoana pers;
-    char n[10];
-    Console::gotoxy(30,10);
-    cout<<"Enter the id of the person you want to remove: ";
+    string n;
+    Console::PrintCenter("Enter the id of the person you want to remove: ",10);
     cin>>n;
     while(file>>pers)
     {
-        if(strstr(pers.id.Get(),n)==NULL || strlen(n)!=strlen(pers.id.Get()))
+        if((pers.id.Get()).find(n) == std::string::npos || pers.id.Get().size()!=n.size())
         {
             ifile<<pers.id.Get()<<'\n'<<pers.number.Get()<<'\n'<<pers.name.Get()<<'\n'<<pers.email.Get()<<'\n';
             ifile<<'\n';
@@ -69,8 +72,7 @@ void Persoana::Remove()
             cout<<pers.name.Get()<<'\n';
             Console::gotoxy(36,16);
             cout<<pers.email.Get()<<'\n';
-            Console::gotoxy(30,18);
-            cout<<"Are you sure you want to remove this person?(y/n) ";
+            Console::PrintCenter("Are you sure you want to remove this person?(y/n) " ,18);
             char c;
             cin>>c;
             if(c=='n' || c=='N')
@@ -80,8 +82,7 @@ void Persoana::Remove()
             }
             else
             {
-                Console::gotoxy(32,20);
-                cout<<"Person succesfully removed.";
+                Console::PrintCenter("Person succesfully removed." ,20);
             }
         }
     }
@@ -92,27 +93,33 @@ void Persoana::Remove()
 
 istream& operator>>(istream& file, Persoana& pers)
 {
-    char line[10];
-    file.getline(pers.id.Get(), 100);
-    file.getline(pers.number.Get(), 100);
-    file.getline(pers.name.Get(), 100);
+    string line;
+    string id;
+    getline(file,id);
+    pers.id.Set(id);
+    string number;
+    getline(file,number);
+    pers.number.Set(number);
+    string name;
+    getline(file, name);
+    pers.name.Set(name);
     string email;
     getline(file, email);
     pers.email.Set(email);
-    file.getline(line, 100);
+    getline(file ,line);
     return file;
 }
 
 ostream& operator<<(ostream& file, Persoana& pers)
 {
     cout << pers.id.Get();
-    for(int i=1; i <= 6-strlen(pers.id.Get())+1; i++)
+    for(int i=1; i <= 6-(pers.id.Get().size())+1; i++)
         cout << " ";
     cout<<pers.number.Get();
-    for(int i=1; i <= 12-strlen(pers.number.Get())+1; i++)
+    for(int i=1; i <= 12-(pers.number.Get().size())+1; i++)
         cout << " ";
     cout<<pers.name.Get();
-    for(int i=1; i <= 30-strlen(pers.name.Get())+1; i++)
+    for(int i=1; i <= 30-(pers.name.Get().size())+1; i++)
         cout << " ";
     cout<<pers.email.Get();
     for(int i=1; i <= 30-(pers.email.Get().size())+1; i++)

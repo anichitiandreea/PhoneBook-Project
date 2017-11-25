@@ -63,22 +63,21 @@ void Level::PrintItems()
     while(f)
     {
         system("cls");
-        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
-        cout<<"#####******************************PHONEBOOK******************************#####"<<endl;
+        SetConsoleTextAttribute( GetStdHandle(STD_OUTPUT_HANDLE), 13 );
+        Console::PrintCenter("#####**************************PHONEBOOK**************************#####", 0 );
+        SetConsoleTextAttribute( GetStdHandle(STD_OUTPUT_HANDLE), 15 );
         for(int i=0; i < (int)_count; i++)
         {
             if(point == i)
             {
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),13);
-                Console::gotoxy(37,i+10);
-                cout<<objects[i].GetName();
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
+                SetConsoleTextAttribute( GetStdHandle(STD_OUTPUT_HANDLE), 13 );
+                Console::PrintCenter( objects[i].GetName() , i+10);
+                SetConsoleTextAttribute( GetStdHandle(STD_OUTPUT_HANDLE), 15 );
             }
             else
             {
-                Console::gotoxy(37,i+10);
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
-                cout<<objects[i].GetName();
+                Console::PrintCenter( objects[i].GetName() , i+10 );
+                SetConsoleTextAttribute( GetStdHandle(STD_OUTPUT_HANDLE), 15 );
             }
         }
         int t = 1;
@@ -126,10 +125,8 @@ void Level::AddButton()
         if(user.ReturnUser() and pass.ReturnPass())
         {
             system("cls");
-            Console::gotoxy(33,10);
-            cout<<"Successful authentication.";
-            Console::gotoxy(33,14);
-            cout<<"Do you want to continue? Press any key: ";
+            Console::PrintCenter( "Successful authentication." ,10);
+            Console::PrintCenter("Do you want to continue? Press any key: ",14);
             _getch();
             system("cls");
             Adminmenu admin;
@@ -138,8 +135,7 @@ void Level::AddButton()
         else
 
         {
-            Console::gotoxy(18,10);
-            cout<<"Incorect password or username. Return to main menu.(y / n) ";
+            Console::PrintCenter( "Incorect password or username. Return to main menu.(y / n) " ,10);
             char c;
             cin>>c;
             if(c=='y' || c=='Y')

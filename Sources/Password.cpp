@@ -7,8 +7,7 @@
 Password::Password()
 {
     c = new char[100];
-    Console::gotoxy(33,11);
-    cout << "Enter password: ";
+    Console::PrintCenter("Enter password: " ,11);
 }
 
 void Password::AddPassword()

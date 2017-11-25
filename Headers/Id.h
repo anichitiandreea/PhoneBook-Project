@@ -3,17 +3,16 @@
 
 #include "../Interfaces/IContact.h"
 
-class Id: public IContact
+class Id
 {
 
-   char* id;
+   string value;
 public:
-   Id();
+   Id(string ="");
    ~Id();
-   void AddId();
-   void Print();
-   char* Get();
-   friend ostream& operator <<(ostream& file,const Id& idd);
+   void Set(string);
+   string Get();
+   friend ostream& operator <<(ostream& file, Id& idd);
    friend istream& operator >>(istream& file, Id& idd);
 };
 

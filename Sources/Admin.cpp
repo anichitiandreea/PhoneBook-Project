@@ -33,21 +33,19 @@ void Adminmenu::PrintItems()
     while(f)
     {
         system("cls");
-        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
-        cout<<"#####******************************PHONEBOOK******************************#####"<<endl;
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+        Console::PrintCenter("#####**************************PHONEBOOK**************************#####", 0);
         for(int i=0; i < (int)_count; i++)
         {
             if(point == i)
             {
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),5);
-                Console::gotoxy(31,i+10);
-                cout<<objects[i].GetName();
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
+                Console::PrintCenter( objects[i].GetName() , i+10);
             }
             else
             {
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
-                Console::gotoxy(31,i+10);
-                cout<<objects[i].GetName();
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+                Console::PrintCenter( objects[i].GetName() , i+10);
             }
         }
         int t = 1;
@@ -93,8 +91,7 @@ void Adminmenu::AddButton()
         system("cls");
         Persoana pers;
         pers.AddPersoana();
-        Console::gotoxy(30,17);
-        cout<<"Do you want to return to Admin menu? (y/n)";
+        Console::PrintCenter("Do you want to return to Admin menu? (y/n)" ,17);
         char c;
         cin>>c;
         if(c=='y' || c=='Y')
@@ -117,8 +114,7 @@ void Adminmenu::AddButton()
             cout<<pers;
             i++;
         }
-        Console::gotoxy(30,i+3);
-        cout<<"Do you want to return to Admin menu? (y/n)";
+        Console::PrintCenter("Do you want to return to Admin menu? (y/n)",i+3);
         char c;
         cin>>c;
         if(c=='y' || c=='Y')
@@ -146,32 +142,22 @@ void Adminmenu::AddButton()
     case 3:
     {
         system("cls");
-        char id[10];
+        string id;
         Persoana pers;
-        int ok=0;
-        Console::gotoxy(10,10);
-        cout<<"Enter the id of the person you want to search for: ";
+        int ok=0,i;
+        Console::PrintCenter("Enter the id of the person you want to search for: ",10);
         cin>>id;
         while(file>>pers)
-            if(strstr(pers.id.Get(),id)>0)
-                if(strlen(id)==strlen(pers.id.Get()))
+            if((pers.id.Get()).find(id) != std::string::npos)
                 {
-                    Console::gotoxy(36,13);
-                    cout<<pers.id.Get()<<'\n';
-                    Console::gotoxy(36,14);
-                    cout<<pers.number.Get()<<'\n';
-                    Console::gotoxy(36,15);
-                    cout<<pers.name.Get()<<'\n';
-                    Console::gotoxy(36,16);
-                    cout<<pers.email.Get()<<'\n';
+                    cout<<'\n'<<pers;
+                    i++;
                     ok=1;
                 }
         if(ok==0)
         {
-            Console::gotoxy(30,13);
-            cout<<"Person not found";
-            Console::gotoxy(25,14);
-            cout<<"Do you want to return to Admin menu? (y/n)";
+            Console::PrintCenter("Person not found",13);
+            Console::PrintCenter("Do you want to return to Admin menu? (y/n)" ,i+1);
             char c;
             cin>>c;
             if(c=='y' || c=='Y')
@@ -189,31 +175,22 @@ void Adminmenu::AddButton()
     {
         system("cls");
         Persoana pers;
-        char number[20];
-        int ok=0;
-        Console::gotoxy(10,10);
-        cout<<"Enter the number of the person you want to search for: ";
-        cin>>number;
+        string number;
+        int ok=0,i=13;
+        Console::PrintCenter("Enter the number of the person you want to search for: ",10);
+        getline(cin,number);
         while(file>>pers)
-            if(strstr(pers.number.Get(),number)>0)
-                if(strlen(number)==strlen(pers.number.Get()))
+            if((pers.number.Get()).find(number) != std::string::npos)
                 {
-                    Console::gotoxy(36,13);
-                    cout<<pers.id.Get()<<'\n';
-                    Console::gotoxy(36,14);
-                    cout<<pers.number.Get()<<'\n';
-                    Console::gotoxy(36,15);
-                    cout<<pers.name.Get()<<'\n';
-                    Console::gotoxy(36,16);
-                    cout<<pers.email.Get()<<'\n';
+                    cout<<'\n';
+                    cout<<pers;
+                    i++;
                     ok=1;
                 }
         if(ok==0)
         {
-            Console::gotoxy(30,13);
-            cout<<"Person not found";
-            Console::gotoxy(25,14);
-            cout<<"Do you want to return to Admin menu? (y/n)";
+            Console::PrintCenter("Person not found" ,13);
+            Console::PrintCenter("Do you want to return to Admin menu? (y/n)" ,i+1);
             char c;
             cin>>c;
             if(c=='y' || c=='Y')
@@ -231,14 +208,12 @@ void Adminmenu::AddButton()
     {
         system("cls");
         Persoana pers;
-        char name[100];
+        string name;
         int ok=0;
-        Console::gotoxy(10,10);
-        cout<<"Enter the name of the person you want to search for: ";
-            cin.get(name,100);
+        Console::PrintCenter("Enter the name of the person you want to search for: " ,10);
+        getline(cin,name);
         while(file>>pers)
-            if(strstr(pers.name.Get(),name)>0)
-                if(strlen(name)==strlen(pers.name.Get()))
+            if((pers.name.Get()).find(name) != std::string::npos)
                 {
                     Console::gotoxy(36,13);
                     cout<<pers.id.Get()<<'\n';
@@ -252,10 +227,8 @@ void Adminmenu::AddButton()
                 }
        if(ok==0)
         {
-            Console::gotoxy(30,13);
-            cout<<"Person not found";
-            Console::gotoxy(25,14);
-            cout<<"Do you want to return to Admin menu? (y/n)";
+            Console::PrintCenter("Person not found" ,13);
+            Console::PrintCenter("Do you want to return to Admin menu? (y/n)" ,14);
             char c;
             cin>>c;
             if(c=='y' || c=='Y')
@@ -275,8 +248,7 @@ void Adminmenu::AddButton()
         Persoana pers;
         string email;
         int ok=0;
-        Console::gotoxy(10,10);
-        cout<<"Enter the email of the person you want to search for: ";
+        Console::PrintCenter("Enter the email of the person you want to search for: " ,10);
         getline(cin, email);
         while(file >> pers)
             if((pers.email.Get()).find(email) != std::string::npos)
@@ -293,10 +265,8 @@ void Adminmenu::AddButton()
                 }
         if(ok==0)
         {
-            Console::gotoxy(30,13);
-            cout<<"Person not found";
-            Console::gotoxy(25,14);
-            cout<<"Do you want to return to Admin menu? (y/n)";
+            Console::PrintCenter("Person not found" ,13);
+            Console::PrintCenter("Do you want to return to Admin menu? (y/n)" ,14);
             char c;
             cin>>c;
             if(c=='y' || c=='Y')
