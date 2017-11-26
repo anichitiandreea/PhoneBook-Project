@@ -1,7 +1,7 @@
 #ifndef PERSON_H_INCLUDED
 #define PERSON_H_INCLUDED
 
-#include "object.h"
+#include "Option.h"
 #include "../Headers/Name.h"
 #include "../Headers/Email.h"
 #include "../Headers/Id.h"
@@ -10,7 +10,6 @@
 
 class Persoana: public IPerson
 {
-
  public:
     Id id;
     Name name;
@@ -20,7 +19,7 @@ class Persoana: public IPerson
     ~Persoana();
     void AddPersoana();
     void Remove();
-    friend istream& operator>>(istream& file,Persoana& pers);
+    friend istream& operator>>(istream& file, Persoana& pers);
     friend ostream& operator<<(ostream& file, Persoana& pers);
 };
 

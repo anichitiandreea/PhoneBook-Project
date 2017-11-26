@@ -1887,8 +1887,8 @@
 
 1511125145 c:\users\ripan\desktop\phonebook project\icontact.h
 
-1511644262 source:c:\users\john\documents\github\phonebook-project\sources\admin.cpp
-	"../Headers/Object.h"
+1511715669 source:c:\users\john\documents\github\phonebook-project\sources\admin.cpp
+	"../Headers/Option.h"
 	"../Headers/Admin.h"
 	"../Headers/Password.h"
 	<conio.h>
@@ -1897,81 +1897,82 @@
 	<cstring>
 	"../Headers/Person.h"
 	"../Headers/Console.h"
+	"../Headers/Search.h"
 
 1511480537 c:\users\john\documents\github\phonebook-project\headers\object.h
 	<string.h>
 	<iostream>
 
-1511480537 c:\users\john\documents\github\phonebook-project\headers\admin.h
-	"object.h"
-	"../Headers/Level.h"
+1511698508 c:\users\john\documents\github\phonebook-project\headers\admin.h
+	"Option.h"
+	"../Headers/Menu.h"
 
-1511480537 c:\users\john\documents\github\phonebook-project\headers\level.h
+1511698395 c:\users\john\documents\github\phonebook-project\headers\level.h
 	"../Interfaces/ILevel.h"
 
-1511480537 c:\users\john\documents\github\phonebook-project\interfaces\ilevel.h
+1511698728 c:\users\john\documents\github\phonebook-project\interfaces\ilevel.h
 	<string>
 
 1511480537 c:\users\john\documents\github\phonebook-project\headers\password.h
 	"../Interfaces/IPassword.h"
 
-1511480537 c:\users\john\documents\github\phonebook-project\interfaces\ipassword.h
+1511695248 c:\users\john\documents\github\phonebook-project\interfaces\ipassword.h
 
-1511480537 c:\users\john\documents\github\phonebook-project\headers\person.h
-	"object.h"
+1511696609 c:\users\john\documents\github\phonebook-project\headers\person.h
+	"Option.h"
 	"../Headers/Name.h"
 	"../Headers/Email.h"
 	"../Headers/Id.h"
 	"../Headers/Number.h"
 	"../Interfaces/IPerson.h"
 
-1511638858 c:\users\john\documents\github\phonebook-project\headers\name.h
+1511695286 c:\users\john\documents\github\phonebook-project\headers\name.h
 	"../Interfaces/IContact.h"
 	<string>
 
-1511480537 c:\users\john\documents\github\phonebook-project\interfaces\icontact.h
+1511695256 c:\users\john\documents\github\phonebook-project\interfaces\icontact.h
 
-1511480537 c:\users\john\documents\github\phonebook-project\headers\email.h
+1511695305 c:\users\john\documents\github\phonebook-project\headers\email.h
 	"../Interfaces/IContact.h"
 
-1511644122 c:\users\john\documents\github\phonebook-project\headers\id.h
+1511695298 c:\users\john\documents\github\phonebook-project\headers\id.h
 	"../Interfaces/IContact.h"
 
-1511642058 c:\users\john\documents\github\phonebook-project\headers\number.h
+1511695278 c:\users\john\documents\github\phonebook-project\headers\number.h
 	"../Interfaces/IContact.h"
 
-1511480537 c:\users\john\documents\github\phonebook-project\interfaces\iperson.h
+1511695243 c:\users\john\documents\github\phonebook-project\interfaces\iperson.h
 
-1511633995 c:\users\john\documents\github\phonebook-project\headers\console.h
+1511718343 c:\users\john\documents\github\phonebook-project\headers\console.h
 	<windows.h>
 	"../Headers/Person.h"
 
-1511634141 source:c:\users\john\documents\github\phonebook-project\sources\console.cpp
+1511718343 source:c:\users\john\documents\github\phonebook-project\sources\console.cpp
 	"../Headers/Console.h"
 	"../Headers/Person.h"
 	<windows.h>
 
-1511480537 source:c:\users\john\documents\github\phonebook-project\sources\email.cpp
+1511711170 source:c:\users\john\documents\github\phonebook-project\sources\email.cpp
 	<cstring>
 	<fstream>
 	<iostream>
 	<regex>
 	<string>
 	"../Headers/Admin.h"
-	"../Headers/Object.h"
+	"../Headers/Option.h"
 	"../Headers/Person.h"
 
-1511644295 source:c:\users\john\documents\github\phonebook-project\sources\id.cpp
+1511711170 source:c:\users\john\documents\github\phonebook-project\sources\id.cpp
 	<iostream>
 	<fstream>
 	"../Headers/Admin.h"
-	"../Headers/Object.h"
+	"../Headers/Option.h"
 	<cstring>
 	<string>
 	"../Headers/Person.h"
 
-1511635130 source:c:\users\john\documents\github\phonebook-project\sources\level.cpp
-	"../Headers/Object.h"
+1511698395 source:c:\users\john\documents\github\phonebook-project\sources\level.cpp
+	"../Headers/Option.h"
 	<string.h>
 	<iostream>
 	<windows.h>
@@ -1979,31 +1980,32 @@
 	"../Headers/Password.h"
 	"../Headers/Admin.h"
 	"../Headers/Console.h"
-	"../Headers/User.h"
+	"../Headers/UserMenu.h"
 	"../Headers/Username.h"
 
 1511480537 c:\users\john\documents\github\phonebook-project\headers\user.h
 	"../Headers/Level.h"
 
-1511480537 c:\users\john\documents\github\phonebook-project\headers\username.h
+1511711035 c:\users\john\documents\github\phonebook-project\headers\username.h
 	"../Interfaces/IUsername.h"
+	<string>
 
 1511480537 c:\users\john\documents\github\phonebook-project\interfaces\iusername.h
 
-1511639293 source:c:\users\john\documents\github\phonebook-project\sources\name.cpp
+1511711249 source:c:\users\john\documents\github\phonebook-project\sources\name.cpp
 	<iostream>
 	<fstream>
 	"../Headers/Admin.h"
-	"../Headers/Object.h"
+	"../Headers/Option.h"
 	<cstring>
 	<string>
 	"../Headers/Person.h"
 
-1511642181 source:c:\users\john\documents\github\phonebook-project\sources\number.cpp
+1511711298 source:c:\users\john\documents\github\phonebook-project\sources\number.cpp
 	<iostream>
 	<fstream>
 	"../Headers/Admin.h"
-	"../Headers/Object.h"
+	"../Headers/Option.h"
 	<cstring>
 	<string>
 	"../Headers/Person.h"
@@ -2019,17 +2021,17 @@
 	"../Headers/Console.h"
 	"../Headers/User.h"
 
-1511636972 source:c:\users\john\documents\github\phonebook-project\sources\password.cpp
+1511711346 source:c:\users\john\documents\github\phonebook-project\sources\password.cpp
 	<iostream>
 	<conio.h>
 	"../Headers/Password.h"
 	"../Headers/Console.h"
 
-1511644772 source:c:\users\john\documents\github\phonebook-project\sources\person.cpp
+1511709699 source:c:\users\john\documents\github\phonebook-project\sources\person.cpp
 	<iostream>
 	<fstream>
 	"../Headers/Admin.h"
-	"../Headers/Object.h"
+	"../Headers/Option.h"
 	<cstring>
 	<string>
 	"../Headers/Person.h"
@@ -2043,18 +2045,72 @@
 	"../Headers/Console.h"
 	"../Headers/User.h"
 
-1511636972 source:c:\users\john\documents\github\phonebook-project\sources\username.cpp
-	"../Headers/Object.h"
-	<string.h>
+1511714673 source:c:\users\john\documents\github\phonebook-project\sources\username.cpp
+	"../Headers/Option.h"
+	<string>
 	<iostream>
 	<windows.h>
 	"../Headers/Password.h"
 	"../Headers/Console.h"
 	"../Headers/Username.h"
 
-1511482720 source:c:\users\john\documents\github\phonebook-project\sources\phonebook.cpp
+1511714643 source:c:\users\john\documents\github\phonebook-project\sources\phonebook.cpp
 	<iostream>
-	"../Headers/Object.h"
+	"../Headers/Option.h"
 	"../Headers/Admin.h"
+
+1511695923 c:\users\john\documents\github\phonebook-project\headers\option.h
+	<string.h>
+	<iostream>
+
+1511706262 c:\users\john\documents\github\phonebook-project\headers\search.h
+
+1511705560 c:\users\john\documents\github\phonebook-project\headers\usermenu.h
+	"../Headers/Menu.h"
+
+1511697501 source:c:\users\john\documents\github\phonebook-project\sources\option.cpp
+	"../Headers/Option.h"
+	<string.h>
+	<iostream>
+	<windows.h>
+	<conio.h>
+	"../Headers/Password.h"
+	"../Headers/Admin.h"
+	"../Headers/Console.h"
+	"../Headers/UserMenu.h"
+
+1511709982 source:c:\users\john\documents\github\phonebook-project\sources\search.cpp
+	"../Headers/Search.h"
+	"../Headers/Console.h"
+	<string>
+	"../Headers/Person.h"
+	<iostream>
 	<fstream>
+
+1511715697 source:c:\users\john\documents\github\phonebook-project\sources\usermenu.cpp
+	"../Headers/Option.h"
+	<conio.h>
+	<fstream>
+	"../Headers/Person.h"
+	"../Headers/Console.h"
+	"../Headers/UserMenu.h"
+	"../Headers/Search.h"
+
+1511698968 c:\users\john\documents\github\phonebook-project\headers\menu.h
+	"../Interfaces/IMenu.h"
+
+1511711222 source:c:\users\john\documents\github\phonebook-project\sources\menu.cpp
+	"../Headers/Option.h"
+	<string.h>
+	<iostream>
+	<windows.h>
+	<conio.h>
+	"../Headers/Password.h"
+	"../Headers/Admin.h"
+	"../Headers/Console.h"
+	"../Headers/UserMenu.h"
+	"../Headers/Username.h"
+
+1511698936 c:\users\john\documents\github\phonebook-project\interfaces\imenu.h
+	<string>
 

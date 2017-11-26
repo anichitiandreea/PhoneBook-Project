@@ -3,10 +3,10 @@
 
 namespace Search
 {
-    void ById();
-    void ByNumber();
-    void ByName();
-    void ByEmail();
+    void ById( int& );
+    void ByNumber( int& );
+    void ByName( int& );
+    void ByEmail( int& );
 }
 
 #endif // SEARCH_H_INCLUDED

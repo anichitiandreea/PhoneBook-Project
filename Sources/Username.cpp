@@ -1,5 +1,5 @@
-#include "../Headers/Object.h"
-#include <string.h>
+#include "../Headers/Option.h"
+#include <string>
 #include <iostream>
 #include <windows.h>
 #include "../Headers/Password.h"
@@ -10,20 +10,16 @@ using namespace std;
 
 Username::Username()
 {
-    username=new char[100];
-    Console::PrintCenter("Enter the user: " ,10);
+    Console::PrintCenter( "Enter the user: ", 10);
 }
 void Username::EnterUser()
 {
-    cin>>username;
+    cin >> username;
 }
 int Username::ReturnUser()
 {
-    if(strstr(this->username, "Andreea") and strlen(this->username)==7)
+    if((username.find("Andreea") != std::string::npos) and username.size() == 7)
         return 1;
     return 0;
 }
-Username::~Username()
-{
-    delete[] username;
-}
+Username::~Username() {}

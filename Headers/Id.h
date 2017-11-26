@@ -5,15 +5,14 @@
 
 class Id: public IContact
 {
-
-   string value;
+    string value;
 public:
-   Id(string ="");
-   ~Id();
-   void Set(string);
-   string Get();
-   friend ostream& operator <<(ostream& file, Id& idd);
-   friend istream& operator >>(istream& file, Id& idd);
+    Id(string ="");
+    ~Id();
+    void Set(string);
+    string Get();
+    friend ostream& operator <<(ostream& file, Id& idd);
+    friend istream& operator >>(istream& file, Id& idd);
 };
 
 #endif // ID_H_INCLUDED

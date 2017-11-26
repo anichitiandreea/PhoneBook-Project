@@ -1,24 +1,24 @@
 #include <iostream>
 #include <fstream>
 #include "../Headers/Admin.h"
-#include "../Headers/Object.h"
+#include "../Headers/Option.h"
 #include <cstring>
 #include <string>
 #include "../Headers/Person.h"
 
 Name::Name(string name)
 {
-    value=name;
+    value = name;
 }
 
-Name::~Name(){}
+Name::~Name() {}
 
 void Name::Set(string name)
 {
-    this->value=name;
+    this -> value = name;
 }
 
-ostream& operator <<(ostream& file, Name& name)
+ostream& operator << (ostream& file, Name& name)
 {
     file << name.Get();
     return file;
@@ -26,13 +26,13 @@ ostream& operator <<(ostream& file, Name& name)
 
 string Name::Get()
 {
-    return this->value;
+    return this -> value;
 }
 
-istream& operator>>(istream& file, Name& name)
+istream& operator >> (istream& file, Name& name)
 {
     string tempname;
-    file>>tempname;
+    file >> tempname;
     name.Set(tempname);
     return file;
 }

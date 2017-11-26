@@ -1,4 +1,4 @@
-#include "../Headers/Object.h"
+#include "../Headers/Option.h"
 #include <string.h>
 #include <iostream>
 #include <windows.h>
@@ -6,58 +6,58 @@
 #include "../Headers/Password.h"
 #include "../Headers/Admin.h"
 #include "../Headers/Console.h"
-#include "../Headers/User.h"
+#include "../Headers/UserMenu.h"
 #include "../Headers/Username.h"
 
 //Add menu items
-int Level::point = 0;
+int Menu::point = 0;
 
-Level::Level() : objects(NULL), _count(0)
+Menu::Menu() : options(NULL), _count(0)
 {
-    this->AddItem("ADMIN");
-    this->AddItem("USER");
-    this->AddItem("EXIT");
+    this->addItem("ADMIN");
+    this->addItem("USER");
+    this->addItem("EXIT");
 }
-Level::~Level()
+Menu::~Menu()
 {
-    if(objects != NULL)
+    if(options != NULL)
     {
-        delete []objects;
+        delete []options;
     }
 }
 
-void Level::AddItem(const string& name)
+void Menu::addItem(const string& name)
 {
-    OBJECT obj(name);
-    if(objects == NULL)
+    Option obj(name);
+    if(options == NULL)
     {
-        objects = new OBJECT[1];
-        objects[0] = obj;
+        options = new Option[1];
+        options[0] = obj;
         _count++;
     }
     else
     {
-        OBJECT* temp = objects;
-        objects = new OBJECT[_count + 1];
+        Option* temp = options;
+        options = new Option[_count + 1];
         for(int i=0; i < static_cast<int>(_count); i++)
-            objects[i] = temp[i];
-        objects[_count] = obj;
+            options[i] = temp[i];
+        options[_count] = obj;
         _count++;
         delete []temp;
     }
 }
 
-void Level::RemoveItem()
+void Menu::removeItem()
 {
-    OBJECT* temp=objects;
-    objects = new OBJECT[_count - 1];
+    Option* temp=options;
+    options = new Option[_count - 1];
     for(int i = 0; i < static_cast<int>(_count-1); i++)
-        objects[i] = temp[i];
+        options[i] = temp[i];
     _count--;
     delete []temp;
 }
 
-void Level::PrintItems()
+void Menu::printItems()
 {
     int f=1;
     while(f)
@@ -71,12 +71,12 @@ void Level::PrintItems()
             if(point == i)
             {
                 SetConsoleTextAttribute( GetStdHandle(STD_OUTPUT_HANDLE), 13 );
-                Console::PrintCenter( objects[i].GetName() , i+10);
+                Console::PrintCenter( options[i].GetName(), i+10);
                 SetConsoleTextAttribute( GetStdHandle(STD_OUTPUT_HANDLE), 15 );
             }
             else
             {
-                Console::PrintCenter( objects[i].GetName() , i+10 );
+                Console::PrintCenter( options[i].GetName(), i+10 );
                 SetConsoleTextAttribute( GetStdHandle(STD_OUTPUT_HANDLE), 15 );
             }
         }
@@ -101,7 +101,7 @@ void Level::PrintItems()
             }
             else if(ch == 13)
             {
-                this->AddButton();
+                this->addButton();
                 t = 0;
                 f = 0;
             }
@@ -111,7 +111,7 @@ void Level::PrintItems()
     cout << '\n';
 }
 
-void Level::AddButton()
+void Menu::addButton()
 {
     switch(point)
     {
@@ -125,24 +125,24 @@ void Level::AddButton()
         if(user.ReturnUser() and pass.ReturnPass())
         {
             system("cls");
-            Console::PrintCenter( "Successful authentication." ,10);
-            Console::PrintCenter("Do you want to continue? Press any key: ",14);
+            Console::PrintCenter( "Successful authentication.", 10);
+            Console::PrintCenter( "Do you want to continue? Press any key: ", 14);
             _getch();
             system("cls");
             Adminmenu admin;
-            admin.PrintItems();
+            admin.printItems();
         }
         else
 
         {
-            Console::PrintCenter( "Incorect password or username. Return to main menu.(y / n) " ,10);
+            Console::PrintCenter( "Incorect password or username. Return to main menu.(y / n) ", 10);
             char c;
-            cin>>c;
-            if(c=='y' || c=='Y')
+            cin >> c;
+            if(c == 'y' || c == 'Y')
             {
                 system("cls");
-                Level level;
-                level.PrintItems();
+                Menu menu;
+                menu.printItems();
             }
             else
                 exit(0);
@@ -151,17 +151,17 @@ void Level::AddButton()
     }
     case 1:
     {
-        point=0;
+        point = 0;
         system("cls");
-        User user;
-        user.PrintItems();
+        UserMenu userMenu;
+        userMenu.printItems();
         break;
     }
     case 2:
-        {
-           exit(0);
-           break;
-        }
+    {
+        exit(0);
+        break;
+    }
 
     }
 }

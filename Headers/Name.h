@@ -6,14 +6,14 @@
 
 class Name: public IContact
 {
-   string value;
+    string value;
 public:
     Name(string= "");
     ~Name();
-   void Set(string);
-   string Get();
-   friend ostream& operator <<(ostream& file, Name& idd);
-   friend istream& operator >>(istream& file, Name& idd);
+    void Set(string);
+    string Get();
+    friend ostream& operator <<(ostream& file, Name& idd);
+    friend istream& operator >>(istream& file, Name& idd);
 };
 
 #endif // NAME_H_INCLUDED

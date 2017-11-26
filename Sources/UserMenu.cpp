@@ -1,34 +1,27 @@
 #include "../Headers/Option.h"
-#include "../Headers/Admin.h"
-#include "../Headers/Password.h"
 #include <conio.h>
-#include <iostream>
 #include <fstream>
-#include <cstring>
 #include "../Headers/Person.h"
 #include "../Headers/Console.h"
+#include "../Headers/UserMenu.h"
 #include "../Headers/Search.h"
 
 using namespace std;
 
-Adminmenu::Adminmenu()
+UserMenu::UserMenu()
 {
     this->removeItem();
     this->removeItem();
     this->removeItem();
-    this->addItem("ADD PHONE RECORD");
-    this->addItem("DISPLAY ALL RECORDS");
-    this->addItem("REMOVE RECORD");
     this->addItem("SEARCH BY ID");
     this->addItem("SEARCH BY NUMBER");
     this->addItem("SEARCH BY NAME");
     this->addItem("SEARCH BY EMAIL");
+    this->addItem("DISPLAY ALL RECORDS");
     this->addItem("BACK TO MAIN MENU");
 }
 
-int Adminmenu::point = 0;
-
-void Adminmenu::printItems()
+void UserMenu::printItems()
 {
     int f = 1;
     while(f)
@@ -36,17 +29,18 @@ void Adminmenu::printItems()
         system("cls");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         Console::PrintCenter("#####**************************PHONEBOOK**************************#####", 0);
-        for(int i = 0; i < static_cast<int>(_count); i++)
+        for(int i=0; i < static_cast<int>(_count); i++)
         {
             if(point == i)
             {
-                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 5);
-                Console::PrintCenter( options[i].GetName(), i+10);
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+                Console::PrintCenter(options[i].GetName(), i+10);
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
             }
             else
             {
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-                Console::PrintCenter( options[i].GetName(), i+10);
+                Console::PrintCenter(options[i].GetName(), i+10);
             }
         }
         int t = 1;
@@ -79,116 +73,53 @@ void Adminmenu::printItems()
     }
     cout << '\n';
 }
-void Adminmenu::addButton()
+
+int UserMenu::point = 0;
+
+void UserMenu::addButton()
 {
     fstream file;
-    fstream ifile;
-    file.open( "database.txt", ios_base::app | ios::in | ios::out);
-    ifile.open( "ifile.txt", ios_base::app | ios::in | ios::out);
+    file.open("database.txt", ios_base::app | ios::in | ios::out);
     switch(point)
     {
     case 0:
     {
         system("cls");
-        Persoana pers;
-        pers.AddPersoana();
-        Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", 17);
+        int i = 15;
+        Search::ById(i);
+        Console::PrintCenter( "Do you want to return to user menu? (y/n)", i+2);
         char c;
         cin >> c;
         if(c == 'y' || c == 'Y')
         {
             system("cls");
-            Menu *admin = new Adminmenu();
-            admin -> printItems();
+            UserMenu *userMenu = new UserMenu();
+            userMenu -> printItems();
         }
         else
             exit(0);
         break;
     }
+
     case 1:
     {
         system("cls");
-        Persoana pers;
-        int i = 4, ok = 0;
-        while(file >> pers)
-        {
-            if(!ok) Console::printMessage();
-            cout << pers;
-            ok = 1;
-            i++;
-        }
-        Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", i+2);
+        int i = 15;
+        Search::ByNumber(i);
+        Console::PrintCenter( "Do you want to return to user menu? (y/n)", i+2);
         char c;
         cin >> c;
         if(c == 'y' || c == 'Y')
         {
             system("cls");
-            Menu *admin = new Adminmenu();
-            admin -> printItems();
+            UserMenu*userMenu = new UserMenu();
+            userMenu -> printItems();
         }
         else
             exit(0);
         break;
     }
     case 2:
-    {
-        system("cls");
-        Persoana pers;
-        pers.Remove();
-        file.close();
-        ifile.close();
-        remove( "database.txt");
-        rename( "ifile.txt","database.txt");
-        Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", 22);
-        char c;
-        cin >> c;
-        if(c == 'y' || c == 'Y')
-        {
-            system("cls");
-            Adminmenu *admin = new Adminmenu();
-            admin -> printItems();
-        }
-        else
-            exit(0);
-        break;
-    }
-    case 3:
-    {
-        system("cls");
-        int i = 15;
-        Search::ById(i);
-        Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", i+2);
-        char c;
-        cin >> c;
-        if(c == 'y' || c == 'Y')
-        {
-            system("cls");
-            Adminmenu *admin = new Adminmenu();
-            admin -> printItems();
-        }
-        else
-            exit(0);
-        break;
-    }
-    case 4:
-    {
-        system("cls");
-        int i = 15;
-        Search::ByNumber(i);
-        Console::PrintCenter( "Do you want to return to User menu? (y/n)", i+2);
-        char c;
-        cin >> c;
-        if(c == 'y' || c == 'Y')
-        {
-            system("cls");
-            Adminmenu *admin = new Adminmenu();
-            admin -> printItems();
-        }
-        else
-            exit(0);
-        break;
-    }
-    case 5:
     {
         system("cls");
         int i = 15;
@@ -199,41 +130,67 @@ void Adminmenu::addButton()
         if(c == 'y' || c == 'Y')
         {
             system("cls");
-            Adminmenu *admin = new Adminmenu();
-            admin -> printItems();
+            UserMenu *userMenu = new UserMenu();
+            userMenu -> printItems();
         }
         else
             exit(0);
         break;
     }
-    case 6:
+    case 3:
     {
         system("cls");
         int i = 15;
         Search::ByEmail(i);
-        Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", i+2);
+        Console::PrintCenter( "Do you want to return to User menu? (y/n)", i+2);
         char c;
         cin >> c;
         if(c == 'y' || c == 'Y')
         {
             system("cls");
-            Adminmenu *admin = new Adminmenu();
-            admin -> printItems();
+            UserMenu *userMenu = new UserMenu();
+            userMenu -> printItems();
         }
         else
             exit(0);
         break;
     }
-    case 7:
+    case 4:
     {
+
         system("cls");
+        Persoana pers;
+        int i = 4, ok = 0;
+        while(file >> pers)
+        {
+            if(!ok) Console::printMessage();
+            cout<<pers;
+            ok = 1;
+            i++;
+        }
+        Console::PrintCenter( "Do you want to return to User menu? (y/n)", i+2);
+        char c;
+        cin >> c;
+        if(c == 'y' || c == 'Y')
+        {
+            system("cls");
+            UserMenu *userMenu = new UserMenu();
+            userMenu -> printItems();
+        }
+        else
+            exit(0);
+        break;
+    }
+    case 5:
+    {
         Menu menu;
         menu.printItems();
         break;
     }
     }
 }
-Adminmenu::~Adminmenu()
+
+UserMenu::~UserMenu()
 {
     if(options != NULL)
     {

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "../Headers/Admin.h"
-#include "../Headers/Object.h"
+#include "../Headers/Option.h"
 #include <cstring>
 #include <string>
 #include "../Headers/Person.h"
@@ -12,9 +12,9 @@ using namespace std;
 fstream file;
 fstream ifile;
 
-Persoana::Persoana(){}
+Persoana::Persoana() {}
 
-Persoana::~Persoana(){}
+Persoana::~Persoana() {}
 
 void Persoana::AddPersoana()
 {
@@ -22,7 +22,7 @@ void Persoana::AddPersoana()
     string tempid, tempname, tempnumber, tempemail;
     file.open("database.txt", ios_base::app | ios::in | ios::out);
 
-    Console::PrintCenter("Enter the person's id: " ,10);
+    Console::PrintCenter("Enter the person's id: ",10);
     getline(cin, tempid);
     id.Set(tempid);
 
@@ -30,23 +30,23 @@ void Persoana::AddPersoana()
     getline(cin,tempnumber);
     number.Set(tempnumber);
 
-    Console::PrintCenter("Enter the full name: " ,12);
+    Console::PrintCenter("Enter the full name: ",12);
     getline(cin,tempname);
     name.Set(tempname);
 
-    Console::PrintCenter("Enter the email: " ,13);
+    Console::PrintCenter("Enter the email: ",13);
     getline(cin,tempemail);
     email.Set(tempemail);
 
     if(email.IsValid())
     {
-        file<<this->id<<'\n'<<this->number<<'\n'<<this->name<<'\n'<<this->email<<'\n';
-        file<<'\n';
-        Console::PrintCenter("Person added succesfully.",15);
+        file << this->id << '\n' << this->number << '\n' << this->name << '\n' << this->email << '\n';
+        file << '\n';
+        Console::PrintCenter("Person added succesfully.", 15);
     }
     else
     {
-        Console::PrintCenter("Person can't be added." ,15);
+        Console::PrintCenter("Person can't be added.", 15);
     }
     file.close();
 }
@@ -57,36 +57,38 @@ void Persoana::Remove()
     ifile.open("ifile.txt", ios_base::app | ios::in | ios::out);
     Persoana pers;
     string n;
-    Console::PrintCenter("Enter the id of the person you want to remove: ",10);
+    Console::PrintCenter( "Enter the id of the person you want to remove: ", 10);
     cin>>n;
-    while(file>>pers)
+    while(file >> pers)
     {
-        if((pers.id.Get()).find(n) == std::string::npos || pers.id.Get().size()!=n.size())
+        if((pers.id.Get()).find(n) == std::string::npos || pers.id.Get().size() != n.size())
         {
-            ifile<<pers.id.Get()<<'\n'<<pers.number.Get()<<'\n'<<pers.name.Get()<<'\n'<<pers.email.Get()<<'\n';
-            ifile<<'\n';
+            ifile << pers.id.Get() << '\n' << pers.number.Get() << '\n' ;
+            ifile << pers.name.Get() << '\n' << pers.email.Get() << '\n';
+            ifile << '\n';
         }
         else
         {
-            Console::gotoxy(36,13);
-            cout<<pers.id.Get()<<'\n';
-            Console::gotoxy(36,14);
-            cout<<pers.number.Get()<<'\n';
-            Console::gotoxy(36,15);
-            cout<<pers.name.Get()<<'\n';
-            Console::gotoxy(36,16);
-            cout<<pers.email.Get()<<'\n';
-            Console::PrintCenter("Are you sure you want to remove this person?(y/n) " ,18);
+            string s("ID: " + pers.id.Get());
+            Console::PrintCenter(s,13);
+            s="TELEPHONE NUMBER: " + pers.number.Get();
+            Console::PrintCenter(s,14);
+            s="NAME: " + pers.name.Get();
+            Console::PrintCenter(s,15);
+            s="EMAIL: " + pers.email.Get();
+            Console::PrintCenter(s,16);
+            Console::PrintCenter( "Are you sure you want to remove this person?(y/n) ", 18);
             char c;
             cin>>c;
-            if(c=='n' || c=='N')
+            if(c == 'n' || c == 'N')
             {
-                ifile<<pers.id.Get()<<'\n'<<pers.number.Get()<<'\n'<<pers.name.Get()<<'\n'<<pers.email.Get()<<'\n';
-                ifile<<'\n';
+                ifile << pers.id.Get() << '\n' << pers.number.Get() << '\n';
+                ifile << pers.name.Get() << '\n'<<pers.email.Get() << '\n';
+                ifile << '\n';
             }
             else
             {
-                Console::PrintCenter("Person succesfully removed." ,20);
+                Console::PrintCenter( "Person succesfully removed.", 20);
             }
         }
     }
@@ -95,13 +97,14 @@ void Persoana::Remove()
 
 }
 
-istream& operator>>(istream& fille, Persoana& pers)
+istream& operator >> (istream& fille, Persoana& pers)
 {
     string line,id,name,email,number;
-    getline(fille,id);
+
+    getline(fille, id);
     pers.id.Set(id);
 
-    getline(fille,number);
+    getline(fille, number);
     pers.number.Set(number);
 
     getline(fille, name);
@@ -110,11 +113,11 @@ istream& operator>>(istream& fille, Persoana& pers)
     getline(fille, email);
     pers.email.Set(email);
 
-    getline(fille ,line);
+    getline(fille,line);
     return fille;
 }
 
-ostream& operator<<(ostream& fille, Persoana& pers)
+ostream& operator << (ostream& fille, Persoana& pers)
 {
     cout << pers.id.Get();
     for(unsigned int i=1; i <= 6-(pers.id.Get().size())+1; i++)
