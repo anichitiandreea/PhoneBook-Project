@@ -39,7 +39,7 @@ void Level::AddItem(const string& name)
     {
         OBJECT* temp = objects;
         objects = new OBJECT[_count + 1];
-        for(int i=0; i < (int)_count; i++)
+        for(int i=0; i < static_cast<int>(_count); i++)
             objects[i] = temp[i];
         objects[_count] = obj;
         _count++;
@@ -51,7 +51,7 @@ void Level::RemoveItem()
 {
     OBJECT* temp=objects;
     objects = new OBJECT[_count - 1];
-    for(int i = 0; i < (int)_count-1; i++)
+    for(int i = 0; i < static_cast<int>(_count-1); i++)
         objects[i] = temp[i];
     _count--;
     delete []temp;
@@ -66,7 +66,7 @@ void Level::PrintItems()
         SetConsoleTextAttribute( GetStdHandle(STD_OUTPUT_HANDLE), 13 );
         Console::PrintCenter("#####**************************PHONEBOOK**************************#####", 0 );
         SetConsoleTextAttribute( GetStdHandle(STD_OUTPUT_HANDLE), 15 );
-        for(int i=0; i < (int)_count; i++)
+        for(int i=0; i <static_cast<int> (_count); i++)
         {
             if(point == i)
             {
@@ -95,7 +95,7 @@ void Level::PrintItems()
             else if(ch == 80)
             {
                 point += 1;
-                if(point == (int)_count)
+                if(point ==static_cast<int>(_count))
                     point = 0;
                 break;
             }

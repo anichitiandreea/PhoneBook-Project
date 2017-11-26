@@ -11,9 +11,9 @@ class Adminmenu : public Level
 public:
     Adminmenu();
     ~Adminmenu();
-  void AddButton();
-  static int point;
-  void PrintItems();
+    void AddButton();
+    static int point;
+    void PrintItems();
 };
 
 #endif // ADMIN_H_INCLUDED

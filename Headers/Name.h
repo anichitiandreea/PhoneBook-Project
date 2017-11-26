@@ -4,7 +4,7 @@
 #include "../Interfaces/IContact.h"
 #include <string>
 
-class Name
+class Name: public IContact
 {
    string value;
 public:

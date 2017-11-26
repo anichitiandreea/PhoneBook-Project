@@ -42,6 +42,7 @@
 		<Unit filename="Headers/Object.h" />
 		<Unit filename="Headers/Password.h" />
 		<Unit filename="Headers/Person.h" />
+		<Unit filename="Headers/Search.h" />
 		<Unit filename="Headers/User.h" />
 		<Unit filename="Headers/Username.h" />
 		<Unit filename="Interfaces/IContact.h" />
@@ -60,6 +61,7 @@
 		<Unit filename="Sources/Password.cpp" />
 		<Unit filename="Sources/Person.cpp" />
 		<Unit filename="Sources/PhoneBook.cpp" />
+		<Unit filename="Sources/Search.cpp" />
 		<Unit filename="Sources/User.cpp" />
 		<Unit filename="Sources/Username.cpp" />
 		<Extensions>

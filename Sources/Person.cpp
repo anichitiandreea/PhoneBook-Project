@@ -18,23 +18,26 @@ Persoana::~Persoana(){}
 
 void Persoana::AddPersoana()
 {
+    cin.get();
+    string tempid, tempname, tempnumber, tempemail;
     file.open("database.txt", ios_base::app | ios::in | ios::out);
-    Console::gotoxy(37,10);
-    string tempid;
-    cout<<"Enter the person's id: "; getline(cin, tempid);
+
+    Console::PrintCenter("Enter the person's id: " ,10);
+    getline(cin, tempid);
     id.Set(tempid);
-    Console::gotoxy(37,11);
-    string tempnumber;
-    cout<<"Enter the telephone number: "; getline(cin,tempnumber);
+
+    Console::PrintCenter("Enter the telephone number: ",11);
+    getline(cin,tempnumber);
     number.Set(tempnumber);
-    Console::gotoxy(37,12);
-    string tempname;
-    cout<<"Enter the full name: "; getline(cin,tempname);
+
+    Console::PrintCenter("Enter the full name: " ,12);
+    getline(cin,tempname);
     name.Set(tempname);
-    Console::gotoxy(37,13);
-    string tempEmail;
-    cout<<"Enter the email: "; cin >> tempEmail;
-    email.Set(tempEmail);
+
+    Console::PrintCenter("Enter the email: " ,13);
+    getline(cin,tempemail);
+    email.Set(tempemail);
+
     if(email.IsValid())
     {
         file<<this->id<<'\n'<<this->number<<'\n'<<this->name<<'\n'<<this->email<<'\n';
@@ -45,6 +48,7 @@ void Persoana::AddPersoana()
     {
         Console::PrintCenter("Person can't be added." ,15);
     }
+    file.close();
 }
 
 void Persoana::Remove()
@@ -91,41 +95,39 @@ void Persoana::Remove()
 
 }
 
-istream& operator>>(istream& file, Persoana& pers)
+istream& operator>>(istream& fille, Persoana& pers)
 {
-    string line;
-    string id;
-    getline(file,id);
+    string line,id,name,email,number;
+    getline(fille,id);
     pers.id.Set(id);
-    string number;
-    getline(file,number);
+
+    getline(fille,number);
     pers.number.Set(number);
-    string name;
-    getline(file, name);
+
+    getline(fille, name);
     pers.name.Set(name);
-    string email;
-    getline(file, email);
+
+    getline(fille, email);
     pers.email.Set(email);
-    getline(file ,line);
-    return file;
+
+    getline(fille ,line);
+    return fille;
 }
 
-ostream& operator<<(ostream& file, Persoana& pers)
+ostream& operator<<(ostream& fille, Persoana& pers)
 {
     cout << pers.id.Get();
-    for(int i=1; i <= 6-(pers.id.Get().size())+1; i++)
+    for(unsigned int i=1; i <= 6-(pers.id.Get().size())+1; i++)
         cout << " ";
     cout<<pers.number.Get();
-    for(int i=1; i <= 12-(pers.number.Get().size())+1; i++)
+    for(unsigned int i=1; i <= 20-(pers.number.Get().size())+1; i++)
         cout << " ";
     cout<<pers.name.Get();
-    for(int i=1; i <= 30-(pers.name.Get().size())+1; i++)
+    for(unsigned int i=1; i <= 30-(pers.name.Get().size())+1; i++)
         cout << " ";
     cout<<pers.email.Get();
-    for(int i=1; i <= 30-(pers.email.Get().size())+1; i++)
+    for(unsigned int i=1; i <= 30-(pers.email.Get().size())+1; i++)
         cout << " ";
     cout << '\n';
-    return file;
+    return fille;
 }
-
-

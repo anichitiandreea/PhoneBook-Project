@@ -4,7 +4,10 @@
 class IContact
 {
 public:
-	virtual char* Get()  = 0;
+
+	virtual void Set(string) = 0;
+    virtual string Get()     = 0;
+
 };
 
 #endif // ICONTACT_H_INCLUDED

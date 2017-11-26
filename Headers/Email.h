@@ -3,7 +3,7 @@
 
 #include "../Interfaces/IContact.h"
 
-class Email
+class Email: public IContact
 {
     string value;
  public:
