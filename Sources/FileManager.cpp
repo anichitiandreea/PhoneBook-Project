@@ -43,6 +43,6 @@ fstream* FileManager::GetSingletone()
 
 void FileManager::ResetFile()
 {
-    FileManager::file.seekg(0, file.beg);
     file.clear();
+    file.seekg(0, file.beg);
 }

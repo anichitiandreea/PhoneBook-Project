@@ -17,6 +17,7 @@ void ByNumber(int &i)
     Console::PrintCenter( "Enter the number of the person you want to search for: ", 10);
     std::cin >> number;
     fstream * file = FileManager::GetSingletone();
+    FileManager::ResetFile();
     while(*file >> pers)
         if((pers.number.Get()).find(number) != std::string::npos)
         {

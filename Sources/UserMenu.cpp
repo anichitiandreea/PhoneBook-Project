@@ -178,7 +178,7 @@ void UserMenu::addButton()
             ok = 1;
             i++;
         }
-       // FileManager::Close();
+        // FileManager::Close();
         Console::PrintCenter( "Do you want to return to User menu? (y/n)", i+2);
         char c;
         cin >> c;
