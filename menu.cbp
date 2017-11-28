@@ -35,6 +35,7 @@
 		<Unit filename="Headers/Admin.h" />
 		<Unit filename="Headers/Console.h" />
 		<Unit filename="Headers/Email.h" />
+		<Unit filename="Headers/FileManager.h" />
 		<Unit filename="Headers/Id.h" />
 		<Unit filename="Headers/Menu.h" />
 		<Unit filename="Headers/Name.h" />
@@ -53,6 +54,7 @@
 		<Unit filename="Sources/Admin.cpp" />
 		<Unit filename="Sources/Console.cpp" />
 		<Unit filename="Sources/Email.cpp" />
+		<Unit filename="Sources/FileManager.cpp" />
 		<Unit filename="Sources/Id.cpp" />
 		<Unit filename="Sources/Menu.cpp" />
 		<Unit filename="Sources/Name.cpp" />

@@ -4,8 +4,8 @@
 class IPerson
 {
 public:
-    virtual void AddPersoana() = 0;
-    virtual void Remove()      = 0;
+    virtual void IsEmailValid()       = 0;
+    virtual void Remove()             = 0;
 };
 
 #endif // IPERSON_H_INCLUDED

@@ -8,6 +8,7 @@
 #include "../Headers/Person.h"
 #include "../Headers/Console.h"
 #include "../Headers/Search.h"
+#include "../Headers/FileManager.h"
 
 using namespace std;
 
@@ -81,9 +82,7 @@ void Adminmenu::printItems()
 }
 void Adminmenu::addButton()
 {
-    fstream file;
     fstream ifile;
-    file.open( "database.txt", ios_base::app | ios::in | ios::out);
     ifile.open( "ifile.txt", ios_base::app | ios::in | ios::out);
     switch(point)
     {
@@ -91,7 +90,8 @@ void Adminmenu::addButton()
     {
         system("cls");
         Persoana pers;
-        pers.AddPersoana();
+        cin >> pers;
+        pers.IsEmailValid();
         Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", 17);
         char c;
         cin >> c;
@@ -110,7 +110,8 @@ void Adminmenu::addButton()
         system("cls");
         Persoana pers;
         int i = 4, ok = 0;
-        while(file >> pers)
+        fstream * file = FileManager::GetSingletone();
+        while(*file >> pers)
         {
             if(!ok) Console::printMessage();
             cout << pers;
@@ -135,7 +136,6 @@ void Adminmenu::addButton()
         system("cls");
         Persoana pers;
         pers.Remove();
-        file.close();
         ifile.close();
         remove( "database.txt");
         rename( "ifile.txt","database.txt");
@@ -175,7 +175,7 @@ void Adminmenu::addButton()
         system("cls");
         int i = 15;
         Search::ByNumber(i);
-        Console::PrintCenter( "Do you want to return to User menu? (y/n)", i+2);
+        Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", i+2);
         char c;
         cin >> c;
         if(c == 'y' || c == 'Y')
@@ -193,7 +193,7 @@ void Adminmenu::addButton()
         system("cls");
         int i = 15;
         Search::ByName(i);
-        Console::PrintCenter( "Do you want to return to User menu? (y/n)", i+2);
+        Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", i+2);
         char c;
         cin >> c;
         if(c == 'y' || c == 'Y')
@@ -233,6 +233,7 @@ void Adminmenu::addButton()
     }
     }
 }
+
 Adminmenu::~Adminmenu()
 {
     if(options != NULL)
