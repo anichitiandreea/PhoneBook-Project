@@ -1,45 +1,37 @@
 #include <iostream>
 #include <fstream>
 #include "../Headers/Admin.h"
-#include "../Headers/Object.h"
+#include "../Headers/Option.h"
 #include <cstring>
 #include <string>
 #include "../Headers/Person.h"
 
-Number::Number()
+Number::Number(string number)
 {
-    number=new char[100];
+    value = number;
 }
 
-void Number::AddNumber()
+void Number::Set(string number)
 {
-    cin.get();
-    cin.getline(number,100);
+    this -> value = number;
+}
+string Number::Get()
+{
+    return this -> value;
 }
 
-void Number::Print()
+ostream& operator << (ostream& file, Number& numb)
 {
-    cout<<number;
-}
-
-char* Number::Get()
-{
-    return number;
-}
-
-ostream& operator <<(ostream& file,const Number& numb)
-{
-       file<<numb.number;
-       return file;
-}
-
-istream& operator>>(istream& file, Number& numb)
-{
-    file>>numb.number;
+    file << numb.Get();
     return file;
 }
 
-Number::~Number()
+istream& operator >> (istream& file, Number& numb)
 {
-    delete[] number;
+    string tempnumber;
+    file >> tempnumber;
+    numb.Set(tempnumber);
+    return file;
 }
+
+Number::~Number() {}

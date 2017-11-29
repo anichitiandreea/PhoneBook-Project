@@ -2,10 +2,11 @@
 #define USERNAME_H_INCLUDED
 
 #include "../Interfaces/IUsername.h"
+#include <string>
 
 class Username: public IUsername
 {
-    char* username;
+    string username;
 public:
     Username();
     void EnterUser();

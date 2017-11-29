@@ -1,44 +1,38 @@
 #include <iostream>
 #include <fstream>
 #include "../Headers/Admin.h"
-#include "../Headers/Object.h"
+#include "../Headers/Option.h"
 #include <cstring>
 #include <string>
 #include "../Headers/Person.h"
 
-Id::Id()
+Id::Id(string id)
 {
-    id=new char[100];
+    value = id;
 }
 
-void Id::AddId()
+void Id::Set(string id)
 {
-    cin>>id;
+    this->value = id;
 }
 
-void Id::Print()
-{
-    cout<<*id;
-}
+Id::~Id() {}
 
-Id::~Id()
+ostream& operator << (ostream& file, Id& idd)
 {
-    delete[] id;
-}
-
-ostream& operator <<(ostream& file, const Id& idd)
-{
-       file<<idd.id;
-       return file;
-}
-
-istream& operator>>(istream& file, Id& idd)
-{
-    file>>idd.id;
+    file<<idd.Get();
     return file;
 }
 
-char* Id::Get()
+istream& operator >> (istream& file, Id& idd)
 {
-    return id;
+    string tempid;
+    file >> tempid;
+    idd.Set(tempid);
+    return file;
+}
+
+string Id::Get()
+{
+    return this -> value;
 }

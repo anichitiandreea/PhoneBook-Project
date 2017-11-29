@@ -5,16 +5,14 @@
 
 class Number: public IContact
 {
-char *number;
+    string value;
 public:
-  Number();
-  ~Number();
-  char* Get();
-  void AddNumber();
-  void Print();
-  friend ostream& operator <<(ostream& file,const Number& numb);
-  friend istream& operator >>(istream& file, Number& numb);
-
+    Number(string ="");
+    ~Number();
+    string  Get();
+    void Set(string);
+    friend ostream& operator <<(ostream& file, Number& numb);
+    friend istream& operator >>(istream& file, Number& numb);
 };
 
 #endif // NUMBER_H_INCLUDED

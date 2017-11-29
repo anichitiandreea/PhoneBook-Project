@@ -4,7 +4,6 @@
 class IPassword
 {
 public:
-
     virtual void AddPassword() = 0;
     virtual int ReturnPass()   = 0;
 };

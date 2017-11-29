@@ -4,24 +4,24 @@
 #include <regex>
 #include <string>
 #include "../Headers/Admin.h"
-#include "../Headers/Object.h"
+#include "../Headers/Option.h"
 #include "../Headers/Person.h"
 
 Email::Email(string email)
 {
-	value = email;
+    value = email;
 }
 
 Email::~Email() {}
 
 string Email::Get()
 {
-    return this->value;
+    return this -> value;
 }
 
 void Email::Set(string email)
 {
-	this->value = email;
+    this->value = email;
 }
 
 bool Email::IsValid()
@@ -34,15 +34,15 @@ bool Email::IsValid()
     return std::regex_match(this->Get(), pattern);
 }
 
-ostream& operator<<(ostream& file, Email& email)
+ostream& operator << (ostream& file, Email& email)
 {
     file << email.Get();
     return file;
 }
 
-istream& operator>>(istream& file, Email& email)
+istream& operator >> (istream& file, Email& email)
 {
-	string tempEmail;
+    string tempEmail;
     file >> tempEmail;
     email.Set(tempEmail);
     return file;

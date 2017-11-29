@@ -1,44 +1,38 @@
 #include <iostream>
 #include <fstream>
 #include "../Headers/Admin.h"
-#include "../Headers/Object.h"
+#include "../Headers/Option.h"
 #include <cstring>
 #include <string>
 #include "../Headers/Person.h"
 
-Name::Name()
+Name::Name(string name)
 {
-    name=new char[100];
+    value = name;
 }
 
-Name::~Name()
+Name::~Name() {}
+
+void Name::Set(string name)
 {
-    delete[] name;
+    this -> value = name;
 }
 
-void Name::AddName()
+ostream& operator << (ostream& file, Name& name)
 {
-    cin.getline(name,100);
+    file << name.Get();
+    return file;
 }
 
-void Name::Print()
+string Name::Get()
 {
-    cout<<name;
+    return this -> value;
 }
 
-ostream& operator <<(ostream& file,const Name& nume)
+istream& operator >> (istream& file, Name& name)
 {
-       file<<nume.name;
-       return file;
-}
-
-char* Name::Get()
-{
-    return name;
-}
-
-istream& operator>>(istream& file, Name& nume)
-{
-    file>>nume.name;
+    string tempname;
+    file >> tempname;
+    name.Set(tempname);
     return file;
 }
