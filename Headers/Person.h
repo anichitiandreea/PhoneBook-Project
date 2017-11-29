@@ -17,7 +17,7 @@ class Persoana: public IPerson
     Email email;
     Persoana();
     ~Persoana();
-    void AddPersoana();
+    void IsEmailValid();
     void Remove();
     friend istream& operator>>(istream& file, Persoana& pers);
     friend ostream& operator<<(ostream& file, Persoana& pers);

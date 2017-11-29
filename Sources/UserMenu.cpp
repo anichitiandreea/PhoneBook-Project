@@ -5,6 +5,7 @@
 #include "../Headers/Console.h"
 #include "../Headers/UserMenu.h"
 #include "../Headers/Search.h"
+#include "../Headers/FileManager.h"
 
 using namespace std;
 
@@ -78,8 +79,7 @@ int UserMenu::point = 0;
 
 void UserMenu::addButton()
 {
-    fstream file;
-    file.open("database.txt", ios_base::app | ios::in | ios::out);
+
     switch(point)
     {
     case 0:
@@ -87,6 +87,7 @@ void UserMenu::addButton()
         system("cls");
         int i = 15;
         Search::ById(i);
+        //FileManager::Close();
         Console::PrintCenter( "Do you want to return to user menu? (y/n)", i+2);
         char c;
         cin >> c;
@@ -105,7 +106,9 @@ void UserMenu::addButton()
     {
         system("cls");
         int i = 15;
+        //FileManager::Initialize("database.txt");
         Search::ByNumber(i);
+        //FileManager::Close();
         Console::PrintCenter( "Do you want to return to user menu? (y/n)", i+2);
         char c;
         cin >> c;
@@ -123,7 +126,9 @@ void UserMenu::addButton()
     {
         system("cls");
         int i = 15;
+        //FileManager::Initialize("database.txt");
         Search::ByName(i);
+        //FileManager::Close();
         Console::PrintCenter( "Do you want to return to User menu? (y/n)", i+2);
         char c;
         cin >> c;
@@ -141,8 +146,10 @@ void UserMenu::addButton()
     {
         system("cls");
         int i = 15;
+        //FileManager::Initialize("database.txt");
         Search::ByEmail(i);
         Console::PrintCenter( "Do you want to return to User menu? (y/n)", i+2);
+        //FileManager::Close();
         char c;
         cin >> c;
         if(c == 'y' || c == 'Y')
@@ -160,14 +167,18 @@ void UserMenu::addButton()
 
         system("cls");
         Persoana pers;
+        //FileManager::Initialize("database.txt");
         int i = 4, ok = 0;
-        while(file >> pers)
+        fstream * file = FileManager::GetSingletone();
+        FileManager::ResetFile();
+        while(*file >> pers)
         {
             if(!ok) Console::printMessage();
             cout<<pers;
             ok = 1;
             i++;
         }
+        // FileManager::Close();
         Console::PrintCenter( "Do you want to return to User menu? (y/n)", i+2);
         char c;
         cin >> c;

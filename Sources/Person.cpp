@@ -6,60 +6,40 @@
 #include <string>
 #include "../Headers/Person.h"
 #include "../Headers/Console.h"
+#include "../Headers/FileManager.h"
 
 using namespace std;
 
-fstream file;
 fstream ifile;
 
 Persoana::Persoana() {}
 
 Persoana::~Persoana() {}
 
-void Persoana::AddPersoana()
+void Persoana::IsEmailValid()
 {
-    cin.get();
-    string tempid, tempname, tempnumber, tempemail;
-    file.open("database.txt", ios_base::app | ios::in | ios::out);
-
-    Console::PrintCenter("Enter the person's id: ",10);
-    getline(cin, tempid);
-    id.Set(tempid);
-
-    Console::PrintCenter("Enter the telephone number: ",11);
-    getline(cin,tempnumber);
-    number.Set(tempnumber);
-
-    Console::PrintCenter("Enter the full name: ",12);
-    getline(cin,tempname);
-    name.Set(tempname);
-
-    Console::PrintCenter("Enter the email: ",13);
-    getline(cin,tempemail);
-    email.Set(tempemail);
 
     if(email.IsValid())
     {
-        file << this->id << '\n' << this->number << '\n' << this->name << '\n' << this->email << '\n';
-        file << '\n';
+        fstream * file = FileManager::GetSingletone();
+        *file << *this;
         Console::PrintCenter("Person added succesfully.", 15);
     }
     else
     {
         Console::PrintCenter("Person can't be added.", 15);
     }
-    file.close();
 }
 
 void Persoana::Remove()
 {
-    file.open("database.txt", ios_base::app | ios::in | ios::out);
     ifile.open("ifile.txt", ios_base::app | ios::in | ios::out);
     Persoana pers;
     string n;
     Console::PrintCenter( "Enter the id of the person you want to remove: ", 10);
     cin>>n;
-    while(file >> pers)
+    fstream * file = FileManager::GetSingletone();
+    while(*file >> pers)
     {
         if((pers.id.Get()).find(n) == std::string::npos || pers.id.Get().size() != n.size())
         {
@@ -92,13 +72,37 @@ void Persoana::Remove()
             }
         }
     }
-    file.close();
     ifile.close();
+    //FileManager::Close();
 
 }
 
-istream& operator >> (istream& fille, Persoana& pers)
+istream& operator>>(istream& fille, Persoana& pers)
 {
+    if(&fille == &cin)//citeste o persoana de la tastatura
+    {
+        cin.get();
+        string tempid, tempname, tempnumber, tempemail;
+
+        Console::PrintCenter("Enter the person's id: ",10);
+        getline(cin, tempid);
+        pers.id.Set(tempid);
+
+        Console::PrintCenter("Enter the telephone number: ",11);
+        getline(cin,tempnumber);
+        pers.number.Set(tempnumber);
+
+        Console::PrintCenter("Enter the full name: ",12);
+        getline(cin,tempname);
+        pers.name.Set(tempname);
+
+        Console::PrintCenter("Enter the email: ",13);
+        getline(cin,tempemail);
+        pers.email.Set(tempemail);
+
+    }
+    else//citeste o persoana din fisier
+    {
     string line,id,name,email,number;
 
     getline(fille, id);
@@ -114,23 +118,33 @@ istream& operator >> (istream& fille, Persoana& pers)
     pers.email.Set(email);
 
     getline(fille,line);
+    }
     return fille;
 }
 
-ostream& operator << (ostream& fille, Persoana& pers)
+ostream& operator<<(ostream& fille, Persoana& pers)
 {
-    cout << pers.id.Get();
-    for(unsigned int i=1; i <= 6-(pers.id.Get().size())+1; i++)
-        cout << " ";
-    cout<<pers.number.Get();
-    for(unsigned int i=1; i <= 20-(pers.number.Get().size())+1; i++)
-        cout << " ";
-    cout<<pers.name.Get();
-    for(unsigned int i=1; i <= 30-(pers.name.Get().size())+1; i++)
-        cout << " ";
-    cout<<pers.email.Get();
-    for(unsigned int i=1; i <= 30-(pers.email.Get().size())+1; i++)
-        cout << " ";
-    cout << '\n';
+    if(&fille == &cout)//afiseaza o persoana pe ecran
+    {
+        cout << pers.id.Get();
+        for(unsigned int i=1; i <= 6-(pers.id.Get().size())+1; i++)
+            cout << " ";
+        cout<<pers.number.Get();
+        for(unsigned int i=1; i <= 20-(pers.number.Get().size())+1; i++)
+            cout << " ";
+        cout<<pers.name.Get();
+        for(unsigned int i=1; i <= 30-(pers.name.Get().size())+1; i++)
+            cout << " ";
+        cout<<pers.email.Get();
+        for(unsigned int i=1; i <= 30-(pers.email.Get().size())+1; i++)
+            cout << " ";
+        cout << '\n';
+    }
+    else
+    {
+        fstream * file = FileManager::GetSingletone();
+        *file << pers.id.Get() << '\n' << pers.number.Get() << '\n' << pers.name.Get() << '\n' << pers.email.Get() << '\n';
+        *file << '\n';
+    }
     return fille;
 }

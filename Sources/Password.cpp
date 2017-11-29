@@ -12,7 +12,6 @@ Password::Password()
 
 void Password::AddPassword()
 {
-
     int i = 0;
     while((c[i] = _getch()))
     {
