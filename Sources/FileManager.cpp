@@ -5,9 +5,7 @@ fstream FileManager::file;
 bool FileManager::Initialized = false;
 string FileManager::filename = "";
 
-FileManager::FileManager()
-{
-}
+FileManager::FileManager() {}
 
 void FileManager::Initialize(string _filename)
 {
@@ -19,25 +17,21 @@ void FileManager::Initialize(string _filename)
     }
 }
 
-template<class T>
-void FileManager::RegisterSave(T& t)
+void FileManager::Close()
 {
     if(Initialized)
     {
-        FileManager::file << t;
+        Initialized = false;
+        FileManager::file.close();
     }
-    Close();
-    Initialize(filename);
-}
-
-void FileManager::Close()
-{
-    Initialized = false;
-    FileManager::file.close();
 }
 
 fstream* FileManager::GetSingletone()
 {
+    if(!Initialized)
+        Initialize(filename);
+    else
+        FileManager::ResetFile();
     return &file;
 }
 
@@ -45,4 +39,10 @@ void FileManager::ResetFile()
 {
     file.clear();
     file.seekg(0, file.beg);
+}
+
+void FileManager::Register()
+{
+    Close();
+    Initialize(filename);
 }

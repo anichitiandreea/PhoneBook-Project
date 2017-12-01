@@ -10,7 +10,7 @@ using namespace std;
 
 Username::Username()
 {
-    Console::PrintCenter( "Enter the user: ", 10);
+    Console::PrintCenter( "Enter the username: ", 10);
 }
 void Username::EnterUser()
 {

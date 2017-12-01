@@ -64,7 +64,7 @@ void Menu::printItems()
     {
         system("cls");
         SetConsoleTextAttribute( GetStdHandle(STD_OUTPUT_HANDLE), 13 );
-        Console::PrintCenter("#####**************************PHONEBOOK**************************#####", 0 );
+        Console::PrintCenter("Phonebook", 0);
         SetConsoleTextAttribute( GetStdHandle(STD_OUTPUT_HANDLE), 15 );
         for(int i=0; i <static_cast<int> (_count); i++)
         {
@@ -120,6 +120,7 @@ void Menu::addButton()
         system("cls");
         Username user;
         user.EnterUser();
+        //cin.get();
         Password pass;
         pass.AddPassword();
         if(user.ReturnUser() and pass.ReturnPass())

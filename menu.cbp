@@ -66,6 +66,7 @@
 		<Unit filename="Sources/Search.cpp" />
 		<Unit filename="Sources/UserMenu.cpp" />
 		<Unit filename="Sources/Username.cpp" />
+		<Unit filename="TemplatesImpl/FileManager.tpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

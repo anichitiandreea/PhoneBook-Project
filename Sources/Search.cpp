@@ -17,7 +17,6 @@ void ByNumber(int &i)
     Console::PrintCenter( "Enter the number of the person you want to search for: ", 10);
     std::cin >> number;
     fstream * file = FileManager::GetSingletone();
-    FileManager::ResetFile();
     while(*file >> pers)
         if((pers.number.Get()).find(number) != std::string::npos)
         {
@@ -63,7 +62,7 @@ void ByName(int &i)
         if((pers.name.Get()).find(name) != std::string::npos)
         {
             if(!ok) Console::printMessage();
-                cout << pers;
+            cout << pers;
             i++;
             ok = 1;
         }
@@ -72,7 +71,7 @@ void ByName(int &i)
 }
 
 void ByEmail(int &i)
-    {
+{
     Persoana pers;
     int ok = 0;
     string email;
@@ -89,6 +88,6 @@ void ByEmail(int &i)
         }
     if(ok == 0)
         Console::PrintCenter( "Person not found", 13);
-    }
+}
 
 }

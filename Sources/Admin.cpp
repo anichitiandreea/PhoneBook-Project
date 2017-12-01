@@ -73,7 +73,6 @@ void Adminmenu::printItems()
             {
                 this->addButton();
                 t = 0;
-                f = 0;
             }
         }
         Sleep(110);
@@ -82,8 +81,6 @@ void Adminmenu::printItems()
 }
 void Adminmenu::addButton()
 {
-    fstream ifile;
-    ifile.open( "ifile.txt", ios_base::app | ios::in | ios::out);
     switch(point)
     {
     case 0:
@@ -95,13 +92,7 @@ void Adminmenu::addButton()
         Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", 17);
         char c;
         cin >> c;
-        if(c == 'y' || c == 'Y')
-        {
-            system("cls");
-            Menu *admin = new Adminmenu();
-            admin -> printItems();
-        }
-        else
+        if(c == 'n' || c == 'N')
             exit(0);
         break;
     }
@@ -121,34 +112,43 @@ void Adminmenu::addButton()
         Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", i+2);
         char c;
         cin >> c;
-        if(c == 'y' || c == 'Y')
-        {
-            system("cls");
-            Menu *admin = new Adminmenu();
-            admin -> printItems();
-        }
-        else
+        if(c == 'n' || c == 'N')
             exit(0);
         break;
     }
     case 2:
     {
         system("cls");
+        fstream ifile;
+        ifile.open( "ifile.txt", ios_base::app | ios::in | ios::out);
         Persoana pers;
         pers.Remove();
         ifile.close();
-        remove( "database.txt");
-        rename( "ifile.txt","database.txt");
-        Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", 22);
-        char c;
-        cin >> c;
-        if(c == 'y' || c == 'Y')
+        FileManager::Close();
+        if(ifile.fail() == true)
         {
             system("cls");
-            Adminmenu *admin = new Adminmenu();
-            admin -> printItems();
+            cout << "Fail true";
         }
-        else
+        if(remove("database.txt") == -1)
+        {
+            std::cout << "Remove Error: " << strerror(errno) << std::endl;
+        }
+        if(rename("ifile.txt", "database.txt") == -1)
+        {
+            std::cout << "Rename Error: " << strerror(errno) << std::endl;
+           /* while(rename("ifile.txt", "database.txt") == -1)
+            {
+                cout << "Retry rename?\n";
+                ifile.close();
+                std::cout << "Rename Error: " << strerror(errno) << std::endl;
+                char ce = getch();
+            }*/
+        }
+        Console::PrintCenter("Do you want to return to Admin menu? (y/n)", 22);
+        char c;
+        cin >> c;
+        if(c == 'n' || c == 'N')
             exit(0);
         break;
     }
@@ -160,13 +160,7 @@ void Adminmenu::addButton()
         Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", i+2);
         char c;
         cin >> c;
-        if(c == 'y' || c == 'Y')
-        {
-            system("cls");
-            Adminmenu *admin = new Adminmenu();
-            admin -> printItems();
-        }
-        else
+        if(c == 'n' || c == 'N')
             exit(0);
         break;
     }
@@ -178,13 +172,7 @@ void Adminmenu::addButton()
         Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", i+2);
         char c;
         cin >> c;
-        if(c == 'y' || c == 'Y')
-        {
-            system("cls");
-            Adminmenu *admin = new Adminmenu();
-            admin -> printItems();
-        }
-        else
+        if(c == 'n' || c == 'N')
             exit(0);
         break;
     }
@@ -196,13 +184,7 @@ void Adminmenu::addButton()
         Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", i+2);
         char c;
         cin >> c;
-        if(c == 'y' || c == 'Y')
-        {
-            system("cls");
-            Adminmenu *admin = new Adminmenu();
-            admin -> printItems();
-        }
-        else
+        if(c == 'n' || c == 'N')
             exit(0);
         break;
     }
@@ -214,13 +196,7 @@ void Adminmenu::addButton()
         Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", i+2);
         char c;
         cin >> c;
-        if(c == 'y' || c == 'Y')
-        {
-            system("cls");
-            Adminmenu *admin = new Adminmenu();
-            admin -> printItems();
-        }
-        else
+        if(c == 'n' || c == 'N')
             exit(0);
         break;
     }

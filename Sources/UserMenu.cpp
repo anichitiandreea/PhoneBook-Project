@@ -67,7 +67,6 @@ void UserMenu::printItems()
             {
                 this->addButton();
                 t = 0;
-                f = 0;
             }
         }
         Sleep(110);
@@ -87,17 +86,10 @@ void UserMenu::addButton()
         system("cls");
         int i = 15;
         Search::ById(i);
-        //FileManager::Close();
         Console::PrintCenter( "Do you want to return to user menu? (y/n)", i+2);
         char c;
         cin >> c;
-        if(c == 'y' || c == 'Y')
-        {
-            system("cls");
-            UserMenu *userMenu = new UserMenu();
-            userMenu -> printItems();
-        }
-        else
+        if(c == 'n' || c == 'N')
             exit(0);
         break;
     }
@@ -106,19 +98,11 @@ void UserMenu::addButton()
     {
         system("cls");
         int i = 15;
-        //FileManager::Initialize("database.txt");
         Search::ByNumber(i);
-        //FileManager::Close();
         Console::PrintCenter( "Do you want to return to user menu? (y/n)", i+2);
         char c;
         cin >> c;
-        if(c == 'y' || c == 'Y')
-        {
-            system("cls");
-            UserMenu*userMenu = new UserMenu();
-            userMenu -> printItems();
-        }
-        else
+        if(c == 'n' || c == 'N')
             exit(0);
         break;
     }
@@ -126,19 +110,11 @@ void UserMenu::addButton()
     {
         system("cls");
         int i = 15;
-        //FileManager::Initialize("database.txt");
         Search::ByName(i);
-        //FileManager::Close();
         Console::PrintCenter( "Do you want to return to User menu? (y/n)", i+2);
         char c;
         cin >> c;
-        if(c == 'y' || c == 'Y')
-        {
-            system("cls");
-            UserMenu *userMenu = new UserMenu();
-            userMenu -> printItems();
-        }
-        else
+        if(c == 'n' || c == 'N')
             exit(0);
         break;
     }
@@ -146,19 +122,11 @@ void UserMenu::addButton()
     {
         system("cls");
         int i = 15;
-        //FileManager::Initialize("database.txt");
         Search::ByEmail(i);
         Console::PrintCenter( "Do you want to return to User menu? (y/n)", i+2);
-        //FileManager::Close();
         char c;
         cin >> c;
-        if(c == 'y' || c == 'Y')
-        {
-            system("cls");
-            UserMenu *userMenu = new UserMenu();
-            userMenu -> printItems();
-        }
-        else
+        if(c == 'n' || c == 'N')
             exit(0);
         break;
     }
@@ -167,10 +135,8 @@ void UserMenu::addButton()
 
         system("cls");
         Persoana pers;
-        //FileManager::Initialize("database.txt");
         int i = 4, ok = 0;
         fstream * file = FileManager::GetSingletone();
-        FileManager::ResetFile();
         while(*file >> pers)
         {
             if(!ok) Console::printMessage();
@@ -178,17 +144,10 @@ void UserMenu::addButton()
             ok = 1;
             i++;
         }
-        // FileManager::Close();
         Console::PrintCenter( "Do you want to return to User menu? (y/n)", i+2);
         char c;
         cin >> c;
-        if(c == 'y' || c == 'Y')
-        {
-            system("cls");
-            UserMenu *userMenu = new UserMenu();
-            userMenu -> printItems();
-        }
-        else
+        if(c == 'n' || c == 'N')
             exit(0);
         break;
     }

@@ -1887,7 +1887,7 @@
 
 1511125145 c:\users\ripan\desktop\phonebook project\icontact.h
 
-1511884424 source:c:\users\john\documents\github\phonebook-project\sources\admin.cpp
+1512164024 source:c:\users\john\documents\github\phonebook-project\sources\admin.cpp
 	"../Headers/Option.h"
 	"../Headers/Admin.h"
 	"../Headers/Password.h"
@@ -1904,7 +1904,7 @@
 	<string.h>
 	<iostream>
 
-1511698508 c:\users\john\documents\github\phonebook-project\headers\admin.h
+1512101003 c:\users\john\documents\github\phonebook-project\headers\admin.h
 	"Option.h"
 	"../Headers/Menu.h"
 
@@ -1919,7 +1919,7 @@
 
 1511695248 c:\users\john\documents\github\phonebook-project\interfaces\ipassword.h
 
-1511884201 c:\users\john\documents\github\phonebook-project\headers\person.h
+1512153423 c:\users\john\documents\github\phonebook-project\headers\person.h
 	"Option.h"
 	"../Headers/Name.h"
 	"../Headers/Email.h"
@@ -1931,7 +1931,7 @@
 	"../Interfaces/IContact.h"
 	<string>
 
-1511695256 c:\users\john\documents\github\phonebook-project\interfaces\icontact.h
+1512140486 c:\users\john\documents\github\phonebook-project\interfaces\icontact.h
 
 1511695305 c:\users\john\documents\github\phonebook-project\headers\email.h
 	"../Interfaces/IContact.h"
@@ -1942,13 +1942,13 @@
 1511695278 c:\users\john\documents\github\phonebook-project\headers\number.h
 	"../Interfaces/IContact.h"
 
-1511884580 c:\users\john\documents\github\phonebook-project\interfaces\iperson.h
+1512153423 c:\users\john\documents\github\phonebook-project\interfaces\iperson.h
 
-1511718343 c:\users\john\documents\github\phonebook-project\headers\console.h
+1512140545 c:\users\john\documents\github\phonebook-project\headers\console.h
 	<windows.h>
 	"../Headers/Person.h"
 
-1511718343 source:c:\users\john\documents\github\phonebook-project\sources\console.cpp
+1512140595 source:c:\users\john\documents\github\phonebook-project\sources\console.cpp
 	"../Headers/Console.h"
 	"../Headers/Person.h"
 	<windows.h>
@@ -2028,7 +2028,7 @@
 	"../Headers/Password.h"
 	"../Headers/Console.h"
 
-1511885521 source:c:\users\john\documents\github\phonebook-project\sources\person.cpp
+1512163065 source:c:\users\john\documents\github\phonebook-project\sources\person.cpp
 	<iostream>
 	<fstream>
 	"../Headers/Admin.h"
@@ -2047,7 +2047,7 @@
 	"../Headers/Console.h"
 	"../Headers/User.h"
 
-1511714673 source:c:\users\john\documents\github\phonebook-project\sources\username.cpp
+1512160129 source:c:\users\john\documents\github\phonebook-project\sources\username.cpp
 	"../Headers/Option.h"
 	<string>
 	<iostream>
@@ -2056,7 +2056,7 @@
 	"../Headers/Console.h"
 	"../Headers/Username.h"
 
-1511822770 source:c:\users\john\documents\github\phonebook-project\sources\phonebook.cpp
+1512146514 source:c:\users\john\documents\github\phonebook-project\sources\phonebook.cpp
 	<iostream>
 	"../Headers/Option.h"
 	"../Headers/Admin.h"
@@ -2066,7 +2066,7 @@
 	<string.h>
 	<iostream>
 
-1511706262 c:\users\john\documents\github\phonebook-project\headers\search.h
+1512140514 c:\users\john\documents\github\phonebook-project\headers\search.h
 
 1511705560 c:\users\john\documents\github\phonebook-project\headers\usermenu.h
 	"../Headers/Menu.h"
@@ -2082,7 +2082,7 @@
 	"../Headers/Console.h"
 	"../Headers/UserMenu.h"
 
-1511897444 source:c:\users\john\documents\github\phonebook-project\sources\search.cpp
+1512144714 source:c:\users\john\documents\github\phonebook-project\sources\search.cpp
 	"../Headers/Search.h"
 	"../Headers/Console.h"
 	<string>
@@ -2091,7 +2091,7 @@
 	<fstream>
 	"../Headers/FileManager.h"
 
-1511884086 source:c:\users\john\documents\github\phonebook-project\sources\usermenu.cpp
+1512162679 source:c:\users\john\documents\github\phonebook-project\sources\usermenu.cpp
 	"../Headers/Option.h"
 	<conio.h>
 	<fstream>
@@ -2104,7 +2104,7 @@
 1511698968 c:\users\john\documents\github\phonebook-project\headers\menu.h
 	"../Interfaces/IMenu.h"
 
-1511711222 source:c:\users\john\documents\github\phonebook-project\sources\menu.cpp
+1512160104 source:c:\users\john\documents\github\phonebook-project\sources\menu.cpp
 	"../Headers/Option.h"
 	<string.h>
 	<iostream>
@@ -2116,14 +2116,17 @@
 	"../Headers/UserMenu.h"
 	"../Headers/Username.h"
 
-1511698936 c:\users\john\documents\github\phonebook-project\interfaces\imenu.h
+1512101003 c:\users\john\documents\github\phonebook-project\interfaces\imenu.h
 	<string>
 
-1511898064 source:c:\users\john\documents\github\phonebook-project\sources\filemanager.cpp
+1512163953 source:c:\users\john\documents\github\phonebook-project\sources\filemanager.cpp
 	"../Headers/FileManager.h"
 	<iostream>
 
-1511883541 c:\users\john\documents\github\phonebook-project\headers\filemanager.h
+1512146317 c:\users\john\documents\github\phonebook-project\headers\filemanager.h
 	<fstream>
 	"../Interfaces/IPerson.h"
+	"../TemplatesImpl/FileManager.tpp"
+
+1512146238 c:\users\john\documents\github\phonebook-project\templatesimpl\filemanager.tpp
 

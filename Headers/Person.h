@@ -10,7 +10,7 @@
 
 class Persoana: public IPerson
 {
- public:
+public:
     Id id;
     Name name;
     Number number;
