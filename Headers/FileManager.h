@@ -9,7 +9,6 @@ using namespace std;
 class FileManager
 {
 public:
-    FileManager();
     static fstream* GetSingletone();
     static void Close();
     static void Initialize(string);

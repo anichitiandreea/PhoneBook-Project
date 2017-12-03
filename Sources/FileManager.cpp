@@ -5,8 +5,6 @@ fstream FileManager::file;
 bool FileManager::Initialized = false;
 string FileManager::filename = "";
 
-FileManager::FileManager() {}
-
 void FileManager::Initialize(string _filename)
 {
     if(!Initialized && _filename != "")
