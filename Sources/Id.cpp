@@ -18,17 +18,17 @@ void Id::Set(string id)
 
 Id::~Id() {}
 
-ostream& operator << (ostream& file, Id& idd)
+ostream& operator<<(ostream& file, Id& _id)
 {
-    file<<idd.Get();
+    file << _id.Get();
     return file;
 }
 
-istream& operator >> (istream& file, Id& idd)
+istream& operator>>(istream& file, Id& _id)
 {
     string tempid;
     file >> tempid;
-    idd.Set(tempid);
+    _id.Set(tempid);
     return file;
 }
 

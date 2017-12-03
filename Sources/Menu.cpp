@@ -7,7 +7,7 @@
 #include "../Headers/Admin.h"
 #include "../Headers/Console.h"
 #include "../Headers/UserMenu.h"
-#include "../Headers/Username.h"
+#include "../Headers/User.h"
 
 //Add menu items
 int Menu::point = 0;
@@ -118,12 +118,12 @@ void Menu::addButton()
     case 0:
     {
         system("cls");
-        Username user;
-        user.EnterUser();
-        //cin.get();
+        User user;
+        Console::PrintCenter( "Enter the username: ", 10);
+        cin >> user;
         Password pass;
         pass.AddPassword();
-        if(user.ReturnUser() and pass.ReturnPass())
+        if(user.CheckUserName() and pass.ReturnPass())
         {
             system("cls");
             Console::PrintCenter( "Successful authentication.", 10);
@@ -134,7 +134,6 @@ void Menu::addButton()
             admin.printItems();
         }
         else
-
         {
             Console::PrintCenter( "Incorect password or username. Return to main menu.(y / n) ", 10);
             char c;
