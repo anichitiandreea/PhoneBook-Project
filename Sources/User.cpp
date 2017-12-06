@@ -2,31 +2,65 @@
 #include <string>
 #include <iostream>
 #include <windows.h>
-#include "../Headers/Password.h"
 #include "../Headers/Console.h"
 #include "../Headers/User.h"
+#include <conio.h>
 
 using namespace std;
 
 User::User() {}
 
-void User::SetUserName(string _userName)
+void User::SetUsername(string _username)
 {
-    this->userName = _userName;
+    this->username = _username;
 }
 
 bool User::CheckUserName()
 {
-    if((userName.find("Andreea") != std::string::npos) and userName.size() == 7)
-        return true;
+    if((username.find("Andreea") != std::string::npos) and username.size() == 7)
+        if((password.find("andreea") != std::string::npos) and password.size() == 7)
+            return true;
     return false;
+}
+
+void User::SetPassword(string _password)
+{
+    this->password = _password;
 }
 
 istream& operator>>(istream& stream, User& user)
 {
-	string username;
-	stream >> username;
-	user.SetUserName(username);
+    if(stream == cin)
+    {
+        Console::PrintCenter( "Enter the username: ", 10);
+        string username;
+        stream >> username;
+        user.SetUsername(username);
+
+        Console::PrintCenter("Enter password: ",11);
+        char *c;
+        c = new char[100];
+        int i = 0;
+        while((c[i] = _getch()))
+        {
+            if(c[i] == 13)
+            {
+                c[i] = '\0';
+                system("cls");
+                break;
+            }
+            cout << "*";
+            if(VK_BACK == c[i] and i != 0)
+            {
+                cout << "\b \b\b \b";
+                i -= 2;
+            }
+            i++;
+        }
+        string password(c);
+        user.SetPassword(password);
+        delete[] c;
+    }
 	return stream;
 }
 

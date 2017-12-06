@@ -1,6 +1,5 @@
 #include "../Headers/Option.h"
 #include "../Headers/Admin.h"
-#include "../Headers/Password.h"
 #include <conio.h>
 #include <iostream>
 #include <fstream>

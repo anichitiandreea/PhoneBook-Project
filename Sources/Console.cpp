@@ -24,6 +24,7 @@ void PrintCenter(string message, int line)
     gotoxy((columns - message.size()) / 2, line);
     cout << message;
 }
+
 void printMessage()
 {
     cout << "\n\n";
@@ -41,4 +42,14 @@ void printMessage()
         cout << " ";
     cout << "\n\n";
 }
+
+void hideCursor()
+{
+   HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+   CONSOLE_CURSOR_INFO info;
+   info.dwSize = 100;
+   info.bVisible = FALSE;
+   SetConsoleCursorInfo(consoleHandle, &info);
+}
+
 }

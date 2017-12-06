@@ -39,8 +39,9 @@ void Persoana::Remove()
     cin>>n;
     int ok = 0;
     fstream * file = FileManager::GetSingletone();
-    while(*file >> pers)
+    while(!ok)
     {
+        *file >> pers;
         if((pers.id.Get()).find(n) == std::string::npos || pers.id.Get().size() != n.size())
             ifile<<pers;
         else

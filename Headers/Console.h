@@ -10,6 +10,7 @@ namespace Console
     bool is_email_valid(const std::string& email);
     void PrintCenter(string message, int line);
     void printMessage();
+    void hideCursor();
 }
 
 #endif // CONSOLE_H_INCLUDED

@@ -41,16 +41,14 @@
 		<Unit filename="Headers/Name.h" />
 		<Unit filename="Headers/Number.h" />
 		<Unit filename="Headers/Option.h" />
-		<Unit filename="Headers/Password.h" />
 		<Unit filename="Headers/Person.h" />
 		<Unit filename="Headers/Search.h" />
+		<Unit filename="Headers/User.h" />
 		<Unit filename="Headers/UserMenu.h" />
-		<Unit filename="Headers/Username.h" />
 		<Unit filename="Interfaces/IContact.h" />
 		<Unit filename="Interfaces/IMenu.h" />
-		<Unit filename="Interfaces/IPassword.h" />
 		<Unit filename="Interfaces/IPerson.h" />
-		<Unit filename="Interfaces/IUsername.h" />
+		<Unit filename="Interfaces/IUser.h" />
 		<Unit filename="Sources/Admin.cpp" />
 		<Unit filename="Sources/Console.cpp" />
 		<Unit filename="Sources/Email.cpp" />
@@ -60,12 +58,11 @@
 		<Unit filename="Sources/Name.cpp" />
 		<Unit filename="Sources/Number.cpp" />
 		<Unit filename="Sources/Option.cpp" />
-		<Unit filename="Sources/Password.cpp" />
 		<Unit filename="Sources/Person.cpp" />
 		<Unit filename="Sources/PhoneBook.cpp" />
 		<Unit filename="Sources/Search.cpp" />
+		<Unit filename="Sources/User.cpp" />
 		<Unit filename="Sources/UserMenu.cpp" />
-		<Unit filename="Sources/Username.cpp" />
 		<Unit filename="TemplatesImpl/FileManager.tpp" />
 		<Extensions>
 			<code_completion />

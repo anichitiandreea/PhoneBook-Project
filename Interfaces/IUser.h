@@ -4,8 +4,9 @@
 class IUser
 {
 public:
-    virtual void SetUserName(string) = 0;
-    virtual bool CheckUserName() = 0;
+    virtual void SetUsername(string) = 0;
+    virtual void SetPassword(string) = 0;
+    virtual bool CheckUserName()     = 0;
 };
 
 #endif // IUSER_H_INCLUDED

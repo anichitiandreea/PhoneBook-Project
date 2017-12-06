@@ -3,7 +3,6 @@
 #include <iostream>
 #include <windows.h>
 #include <conio.h>
-#include "../Headers/Password.h"
 #include "../Headers/Admin.h"
 #include "../Headers/Console.h"
 #include "../Headers/UserMenu.h"
@@ -80,6 +79,7 @@ void Menu::printItems()
                 SetConsoleTextAttribute( GetStdHandle(STD_OUTPUT_HANDLE), 15 );
             }
         }
+        Console::hideCursor();
         int t = 1;
         char ch;
         while(t)
@@ -119,11 +119,8 @@ void Menu::addButton()
     {
         system("cls");
         User user;
-        Console::PrintCenter( "Enter the username: ", 10);
         cin >> user;
-        Password pass;
-        pass.AddPassword();
-        if(user.CheckUserName() and pass.ReturnPass())
+        if(user.CheckUserName())
         {
             system("cls");
             Console::PrintCenter( "Successful authentication.", 10);
