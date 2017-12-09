@@ -15,14 +15,6 @@ void User::SetUsername(string _username)
     this->username = _username;
 }
 
-bool User::CheckUserName()
-{
-    if((username.find("Andreea") != std::string::npos) and username.size() == 7)
-        if((password.find("andreea") != std::string::npos) and password.size() == 7)
-            return true;
-    return false;
-}
-
 void User::SetPassword(string _password)
 {
     this->password = _password;
@@ -62,6 +54,14 @@ istream& operator>>(istream& stream, User& user)
         delete[] c;
     }
 	return stream;
+}
+string User::GetUsername()
+{
+    return this->username;
+}
+string User::GetPassword()
+{
+    return this->password;
 }
 
 User::~User() {}

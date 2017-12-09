@@ -7,6 +7,7 @@
 #include "../Headers/Console.h"
 #include "../Headers/UserMenu.h"
 #include "../Headers/User.h"
+#include "../Headers/LoginManager.h"
 
 //Add menu items
 int Menu::point = 0;
@@ -106,7 +107,7 @@ void Menu::printItems()
                 f = 0;
             }
         }
-        Sleep(110);
+        Sleep(20);
     }
     cout << '\n';
 }
@@ -119,8 +120,9 @@ void Menu::addButton()
     {
         system("cls");
         User user;
+        LoginManager l;
         cin >> user;
-        if(user.CheckUserName())
+        if(l.Authentificate(user))
         {
             system("cls");
             Console::PrintCenter( "Successful authentication.", 10);

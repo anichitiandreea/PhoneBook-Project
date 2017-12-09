@@ -19,7 +19,6 @@ void Persoana::IsEmailValid()
 
     if(email.IsValid())
     {
-        fstream * file = FileManager::GetSingletone();
         FileManager::RegisterSave(*this);
         Console::PrintCenter("Person added succesfully.", 15);
     }

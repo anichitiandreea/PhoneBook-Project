@@ -37,6 +37,7 @@
 		<Unit filename="Headers/Email.h" />
 		<Unit filename="Headers/FileManager.h" />
 		<Unit filename="Headers/Id.h" />
+		<Unit filename="Headers/LoginManager.h" />
 		<Unit filename="Headers/Menu.h" />
 		<Unit filename="Headers/Name.h" />
 		<Unit filename="Headers/Number.h" />
@@ -46,6 +47,7 @@
 		<Unit filename="Headers/User.h" />
 		<Unit filename="Headers/UserMenu.h" />
 		<Unit filename="Interfaces/IContact.h" />
+		<Unit filename="Interfaces/ILoginManager.h" />
 		<Unit filename="Interfaces/IMenu.h" />
 		<Unit filename="Interfaces/IPerson.h" />
 		<Unit filename="Interfaces/IUser.h" />
@@ -54,6 +56,7 @@
 		<Unit filename="Sources/Email.cpp" />
 		<Unit filename="Sources/FileManager.cpp" />
 		<Unit filename="Sources/Id.cpp" />
+		<Unit filename="Sources/LoginManager.cpp" />
 		<Unit filename="Sources/Menu.cpp" />
 		<Unit filename="Sources/Name.cpp" />
 		<Unit filename="Sources/Number.cpp" />

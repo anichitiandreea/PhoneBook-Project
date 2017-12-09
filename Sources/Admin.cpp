@@ -74,7 +74,6 @@ void Adminmenu::printItems()
                 t = 0;
             }
         }
-        Sleep(110);
     }
     cout << '\n';
 }
@@ -136,13 +135,6 @@ void Adminmenu::addButton()
         if(rename("ifile.txt", "database.txt") == -1)
         {
             std::cout << "Rename Error: " << strerror(errno) << std::endl;
-           /* while(rename("ifile.txt", "database.txt") == -1)
-            {
-                cout << "Retry rename?\n";
-                ifile.close();
-                std::cout << "Rename Error: " << strerror(errno) << std::endl;
-                char ce = getch();
-            }*/
         }
         Console::PrintCenter("Do you want to return to Admin menu? (y/n)", 22);
         char c;

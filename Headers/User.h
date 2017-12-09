@@ -3,6 +3,7 @@
 
 #include "../Interfaces/IUser.h"
 #include <string>
+using namespace std;
 
 class User: public IUser
 {
@@ -12,7 +13,8 @@ public:
     User();
     void SetUsername(string);
     void SetPassword(string);
-    bool CheckUserName();
+    string GetPassword();
+    string GetUsername();
     ~User();
     friend istream& operator>>(istream& stream, User& user);
 };

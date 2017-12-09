@@ -6,16 +6,16 @@
 #include <string>
 #include "../Headers/Person.h"
 
-Name::Name(string name)
+Name::Name(string _name)
 {
-    value = name;
+    value = _name;
 }
 
 Name::~Name() {}
 
-void Name::Set(string name)
+void Name::Set(string _name)
 {
-    this -> value = name;
+    this -> value = _name;
 }
 
 ostream& operator << (ostream& file, Name& name)

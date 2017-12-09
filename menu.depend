@@ -2132,3 +2132,202 @@
 
 1512319856 c:\users\john\documents\github\phonebook-project\interfaces\iuser.h
 
+1512754653 source:c:\users\ripan\documents\github\phonebook-project\sources\admin.cpp
+	"../Headers/Option.h"
+	"../Headers/Admin.h"
+	<conio.h>
+	<iostream>
+	<fstream>
+	<cstring>
+	"../Headers/Person.h"
+	"../Headers/Console.h"
+	"../Headers/Search.h"
+	"../Headers/FileManager.h"
+
+1511878822 c:\users\ripan\documents\github\phonebook-project\headers\option.h
+	<string.h>
+	<iostream>
+
+1511878821 c:\users\ripan\documents\github\phonebook-project\headers\admin.h
+	"Option.h"
+	"../Headers/Menu.h"
+
+1511878821 c:\users\ripan\documents\github\phonebook-project\headers\menu.h
+	"../Interfaces/IMenu.h"
+
+1511878822 c:\users\ripan\documents\github\phonebook-project\interfaces\imenu.h
+	<string>
+
+1512214361 c:\users\ripan\documents\github\phonebook-project\headers\person.h
+	"Option.h"
+	"../Headers/Name.h"
+	"../Headers/Email.h"
+	"../Headers/Id.h"
+	"../Headers/Number.h"
+	"../Interfaces/IPerson.h"
+
+1511878822 c:\users\ripan\documents\github\phonebook-project\headers\name.h
+	"../Interfaces/IContact.h"
+	<string>
+
+1512214361 c:\users\ripan\documents\github\phonebook-project\interfaces\icontact.h
+
+1511878821 c:\users\ripan\documents\github\phonebook-project\headers\email.h
+	"../Interfaces/IContact.h"
+
+1511878821 c:\users\ripan\documents\github\phonebook-project\headers\id.h
+	"../Interfaces/IContact.h"
+
+1511878822 c:\users\ripan\documents\github\phonebook-project\headers\number.h
+	"../Interfaces/IContact.h"
+
+1511983524 c:\users\ripan\documents\github\phonebook-project\interfaces\iperson.h
+
+1512754163 c:\users\ripan\documents\github\phonebook-project\headers\console.h
+	<windows.h>
+	"../Headers/Person.h"
+
+1511878822 c:\users\ripan\documents\github\phonebook-project\headers\search.h
+
+1512497961 c:\users\ripan\documents\github\phonebook-project\headers\filemanager.h
+	<fstream>
+	"../Interfaces/IPerson.h"
+	"../TemplatesImpl/FileManager.tpp"
+
+1512214361 c:\users\ripan\documents\github\phonebook-project\templatesimpl\filemanager.tpp
+
+1512754163 source:c:\users\ripan\documents\github\phonebook-project\sources\console.cpp
+	"../Headers/Console.h"
+	"../Headers/Person.h"
+	<windows.h>
+
+1511878822 source:c:\users\ripan\documents\github\phonebook-project\sources\email.cpp
+	<cstring>
+	<fstream>
+	<iostream>
+	<regex>
+	<string>
+	"../Headers/Admin.h"
+	"../Headers/Option.h"
+	"../Headers/Person.h"
+
+1512497961 source:c:\users\ripan\documents\github\phonebook-project\sources\filemanager.cpp
+	"../Headers/FileManager.h"
+	<iostream>
+
+1512497961 source:c:\users\ripan\documents\github\phonebook-project\sources\id.cpp
+	<iostream>
+	<fstream>
+	"../Headers/Admin.h"
+	"../Headers/Option.h"
+	<cstring>
+	<string>
+	"../Headers/Person.h"
+
+1512755596 source:c:\users\ripan\documents\github\phonebook-project\sources\name.cpp
+	<iostream>
+	<fstream>
+	"../Headers/Admin.h"
+	"../Headers/Option.h"
+	<cstring>
+	<string>
+	"../Headers/Person.h"
+
+1511878822 source:c:\users\ripan\documents\github\phonebook-project\sources\number.cpp
+	<iostream>
+	<fstream>
+	"../Headers/Admin.h"
+	"../Headers/Option.h"
+	<cstring>
+	<string>
+	"../Headers/Person.h"
+
+1512754163 source:c:\users\ripan\documents\github\phonebook-project\sources\option.cpp
+	"../Headers/Option.h"
+	<string.h>
+	<iostream>
+	<windows.h>
+	<conio.h>
+	"../Headers/Admin.h"
+	"../Headers/Console.h"
+	"../Headers/UserMenu.h"
+
+1511878822 c:\users\ripan\documents\github\phonebook-project\headers\usermenu.h
+	"../Headers/Menu.h"
+
+1512756592 source:c:\users\ripan\documents\github\phonebook-project\sources\person.cpp
+	<iostream>
+	<fstream>
+	"../Headers/Admin.h"
+	"../Headers/Option.h"
+	<cstring>
+	<string>
+	"../Headers/Person.h"
+	"../Headers/Console.h"
+	"../Headers/FileManager.h"
+
+1511983524 source:c:\users\ripan\documents\github\phonebook-project\sources\phonebook.cpp
+	<iostream>
+	"../Headers/Option.h"
+	"../Headers/Admin.h"
+	"../Headers/FileManager.h"
+
+1512214361 source:c:\users\ripan\documents\github\phonebook-project\sources\search.cpp
+	"../Headers/Search.h"
+	"../Headers/Console.h"
+	<string>
+	"../Headers/Person.h"
+	<iostream>
+	<fstream>
+	"../Headers/FileManager.h"
+
+1512772855 source:c:\users\ripan\documents\github\phonebook-project\sources\user.cpp
+	"../Headers/Option.h"
+	<string>
+	<iostream>
+	<windows.h>
+	"../Headers/Console.h"
+	"../Headers/User.h"
+	<conio.h>
+
+1512767452 c:\users\ripan\documents\github\phonebook-project\headers\user.h
+	"../Interfaces/IUser.h"
+	<string>
+
+1512773843 c:\users\ripan\documents\github\phonebook-project\interfaces\iuser.h
+	<string>
+
+1512754674 source:c:\users\ripan\documents\github\phonebook-project\sources\usermenu.cpp
+	"../Headers/Option.h"
+	<conio.h>
+	<fstream>
+	"../Headers/Person.h"
+	"../Headers/Console.h"
+	"../Headers/UserMenu.h"
+	"../Headers/Search.h"
+	"../Headers/FileManager.h"
+
+1512773531 source:c:\users\ripan\documents\github\phonebook-project\sources\menu.cpp
+	"../Headers/Option.h"
+	<string.h>
+	<iostream>
+	<windows.h>
+	<conio.h>
+	"../Headers/Admin.h"
+	"../Headers/Console.h"
+	"../Headers/UserMenu.h"
+	"../Headers/User.h"
+	"../Headers/LoginManager.h"
+
+1512769833 source:c:\users\ripan\documents\github\phonebook-project\sources\loginmanager.cpp
+	"../Headers/User.h"
+	"../Headers/LoginManager.h"
+	<string>
+
+1512774227 c:\users\ripan\documents\github\phonebook-project\headers\loginmanager.h
+	"../Headers/User.h"
+	"../Interfaces/ILoginManager.h"
+
+1512769964 c:\users\ripan\documents\github\phonebook-project\interfaces\iloginmanager.h
+	"../Headers/User.h"
+
