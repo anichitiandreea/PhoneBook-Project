@@ -9,7 +9,6 @@
 #include "../Headers/User.h"
 #include "../Headers/LoginManager.h"
 
-//Add menu items
 int Menu::point = 0;
 
 Menu::Menu() : options(NULL), _count(0)
@@ -107,7 +106,6 @@ void Menu::printItems()
                 f = 0;
             }
         }
-        Sleep(20);
     }
     cout << '\n';
 }
@@ -126,7 +124,7 @@ void Menu::addButton()
         {
             system("cls");
             Console::PrintCenter( "Successful authentication.", 10);
-            Console::PrintCenter( "Do you want to continue? Press any key: ", 14);
+            Console::PrintCenter( "Press any key to continue: ", 14);
             _getch();
             system("cls");
             Adminmenu admin;

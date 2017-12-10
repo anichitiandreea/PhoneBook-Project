@@ -35,7 +35,7 @@ void Adminmenu::printItems()
     {
         system("cls");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-        Console::PrintCenter("#####**************************PHONEBOOK**************************#####", 0);
+        Console::PrintCenter("PHONEBOOK", 0);
         for(int i = 0; i < static_cast<int>(_count); i++)
         {
             if(point == i)
@@ -86,7 +86,7 @@ void Adminmenu::addButton()
         system("cls");
         Persoana pers;
         cin >> pers;
-        pers.IsEmailValid();
+        pers.IsContactValid();
         Console::PrintCenter( "Do you want to return to Admin menu? (y/n)", 17);
         char c;
         cin >> c;

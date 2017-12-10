@@ -11,6 +11,7 @@ public:
     ~Id();
     void Set(string);
     string Get();
+    bool isValid();
     friend ostream& operator <<(ostream& file, Id& idd);
     friend istream& operator >>(istream& file, Id& idd);
 };

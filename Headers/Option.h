@@ -1,7 +1,6 @@
 #ifndef OPTION_H_INCLUDED
 #define OPTION_H_INCLUDED
 
-#include <string.h>
 #include <iostream>
 
 using namespace std;

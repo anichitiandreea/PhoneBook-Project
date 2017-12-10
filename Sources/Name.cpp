@@ -29,6 +29,13 @@ string Name::Get()
     return this -> value;
 }
 
+bool Name::isValid()
+{
+    if(value.size() > 30)
+        return false;
+    return true;
+}
+
 istream& operator >> (istream& file, Name& name)
 {
     string tempname;

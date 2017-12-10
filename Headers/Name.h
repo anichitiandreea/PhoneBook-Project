@@ -12,6 +12,7 @@ public:
     ~Name();
     void Set(string);
     string Get();
+    bool isValid();
     friend ostream& operator <<(ostream& file, Name& idd);
     friend istream& operator >>(istream& file, Name& idd);
 };

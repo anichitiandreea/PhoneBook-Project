@@ -14,17 +14,26 @@ Persoana::Persoana() {}
 
 Persoana::~Persoana() {}
 
-void Persoana::IsEmailValid()
+void Persoana::IsContactValid()
 {
 
-    if(email.IsValid())
+    if(id.isValid() and email.IsValid() and name.isValid() and number.isValid())
     {
         FileManager::RegisterSave(*this);
         Console::PrintCenter("Person added succesfully.", 15);
     }
     else
     {
-        Console::PrintCenter("Person can't be added.", 15);
+        if(!id.isValid())
+            Console::PrintCenter("The person you entered is already in the database.", 15);
+        else
+            if(!name.isValid())
+                Console::PrintCenter("The name of the person is too long.", 15);
+            else
+                if(!number.isValid())
+                    Console::PrintCenter("The telephone number is incorrect.", 15);
+                else
+                    Console::PrintCenter("The person's email is invalid.", 15);
     }
 }
 
@@ -38,11 +47,10 @@ void Persoana::Remove()
     cin>>n;
     int ok = 0;
     fstream * file = FileManager::GetSingletone();
-    while(!ok)
+    while(*file >> pers)
     {
-        *file >> pers;
         if((pers.id.Get()).find(n) == std::string::npos || pers.id.Get().size() != n.size())
-            ifile<<pers;
+            ifile << pers;
         else
         {
             ok = 1;
@@ -58,7 +66,7 @@ void Persoana::Remove()
             char c;
             cin>>c;
             if(c == 'n' || c == 'N')
-               ifile<<pers;
+               ifile << pers;
             else
                 Console::PrintCenter( "Person succesfully removed.", 20);
         }

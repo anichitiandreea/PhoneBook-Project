@@ -17,7 +17,7 @@ public:
     Email email;
     Persoana();
     ~Persoana();
-    void IsEmailValid();
+    void IsContactValid();
     void Remove();
     friend istream& operator>>(istream& file, Persoana& pers);
     friend ostream& operator<<(ostream& file, Persoana& pers);

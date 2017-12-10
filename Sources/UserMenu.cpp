@@ -29,7 +29,7 @@ void UserMenu::printItems()
     {
         system("cls");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-        Console::PrintCenter("#####**************************PHONEBOOK**************************#####", 0);
+        Console::PrintCenter("PHONEBOOK", 0);
         for(int i=0; i < static_cast<int>(_count); i++)
         {
             if(point == i)
@@ -69,7 +69,6 @@ void UserMenu::printItems()
                 t = 0;
             }
         }
-        Sleep(110);
     }
     cout << '\n';
 }

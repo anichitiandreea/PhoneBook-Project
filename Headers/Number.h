@@ -11,8 +11,9 @@ public:
     ~Number();
     string  Get();
     void Set(string);
-    friend ostream& operator <<(ostream& file, Number& numb);
-    friend istream& operator >>(istream& file, Number& numb);
+    bool isValid();
+    friend ostream& operator <<(ostream& file, Number&);
+    friend istream& operator >>(istream& file, Number&);
 };
 
 #endif // NUMBER_H_INCLUDED
